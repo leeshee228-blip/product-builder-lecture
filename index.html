@@ -15,6 +15,43 @@
       text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+
+      --bg: #f7f8fc;
+      --card-bg: rgba(255, 255, 255, .88);
+      --card-border: rgba(230, 232, 242, .9);
+      --text: #172033;
+      --intro: #777f93;
+      --hint: #9299aa;
+      --eyebrow-bg: rgba(255, 255, 255, .72);
+      --eyebrow-border: #e8e8f5;
+      --placeholder-bg: #f6f7fb;
+      --placeholder-border: #d8dbea;
+      --placeholder-text: #b7bdcd;
+      --radial-gradient: radial-gradient(ellipse at 50% 0%, rgba(223, 232, 255, .72), transparent 42rem);
+      --toggle-bg: #eef0f8;
+      --toggle-hover: #e2e5f2;
+      --toggle-text: #4a526d;
+      --disclaimer: #a0a6b4;
+    }
+
+    :root.dark {
+      color-scheme: dark;
+      --bg: #0b0f19;
+      --card-bg: rgba(17, 24, 39, .88);
+      --card-border: rgba(31, 41, 55, .9);
+      --text: #f3f4f6;
+      --intro: #9ca3af;
+      --hint: #9ca3af;
+      --eyebrow-bg: rgba(17, 24, 39, .72);
+      --eyebrow-border: #1f2937;
+      --placeholder-bg: #1f2937;
+      --placeholder-border: #374151;
+      --placeholder-text: #6b7280;
+      --radial-gradient: radial-gradient(ellipse at 50% 0%, rgba(30, 41, 59, .5), transparent 42rem);
+      --toggle-bg: #1f2937;
+      --toggle-hover: #374151;
+      --toggle-text: #d1d5db;
+      --disclaimer: #6b7280;
     }
 
     * { box-sizing: border-box; }
@@ -23,9 +60,9 @@
       min-width: 320px;
       min-height: 100vh;
       margin: 0;
-      background:
-        radial-gradient(ellipse at 50% 0%, rgba(223, 232, 255, .72), transparent 42rem),
-        #f7f8fc;
+      background: var(--radial-gradient), var(--bg);
+      color: var(--text);
+      transition: background .3s ease, color .3s ease;
     }
 
     button { font: inherit; }
@@ -66,11 +103,40 @@
       box-shadow: 0 5px 12px rgba(102, 88, 232, .24);
     }
 
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
     .top-note {
-      color: #838ba0;
+      color: var(--intro);
       font-size: 13px;
       font-weight: 600;
     }
+
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      padding: 0;
+      border: 0;
+      border-radius: 12px;
+      background: var(--toggle-bg);
+      color: var(--toggle-text);
+      cursor: pointer;
+      font-size: 17px;
+      transition: background .18s ease, transform .18s ease;
+    }
+
+    .theme-toggle:hover {
+      background: var(--toggle-hover);
+      transform: scale(1.05);
+    }
+
+    .theme-toggle:focus-visible { outline: 2px solid #6658e8; outline-offset: 2px; }
 
     main { text-align: center; }
 
@@ -79,9 +145,9 @@
       align-items: center;
       gap: 7px;
       padding: 7px 12px;
-      border: 1px solid #e8e8f5;
+      border: 1px solid var(--eyebrow-border);
       border-radius: 999px;
-      background: rgba(255, 255, 255, .72);
+      background: var(--eyebrow-bg);
       color: #6658e8;
       font-size: 12px;
       font-weight: 750;
@@ -100,7 +166,7 @@
 
     .intro {
       margin: 0;
-      color: #777f93;
+      color: var(--intro);
       font-size: 16px;
       line-height: 1.7;
     }
@@ -108,15 +174,16 @@
     .draw-card {
       margin: 42px auto 0;
       padding: 38px 36px 32px;
-      border: 1px solid rgba(230, 232, 242, .9);
+      border: 1px solid var(--card-border);
       border-radius: 24px;
-      background: rgba(255, 255, 255, .88);
+      background: var(--card-bg);
       box-shadow: 0 18px 55px rgba(47, 54, 90, .08);
+      backdrop-filter: blur(8px);
     }
 
     .card-label {
       margin: 0;
-      color: #7e8598;
+      color: var(--intro);
       font-size: 13px;
       font-weight: 700;
       letter-spacing: .2px;
@@ -148,9 +215,9 @@
     }
 
     .ball.placeholder {
-      border: 1px dashed #d8dbea;
-      background: #f6f7fb;
-      color: #b7bdcd;
+      border: 1px dashed var(--placeholder-border);
+      background: var(--placeholder-bg);
+      color: var(--placeholder-text);
       box-shadow: none;
       animation: none;
     }
@@ -199,7 +266,7 @@
     .hint {
       min-height: 20px;
       margin: 16px 0 0;
-      color: #9299aa;
+      color: var(--hint);
       font-size: 12px;
     }
 
@@ -215,7 +282,7 @@
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      color: #737b8e;
+      color: var(--intro);
       font-size: 12px;
     }
 
@@ -227,7 +294,7 @@
 
     .disclaimer {
       margin: 48px 0 0;
-      color: #a0a6b4;
+      color: var(--disclaimer);
       font-size: 12px;
       line-height: 1.7;
     }
@@ -260,7 +327,12 @@
         <span class="brand-mark" aria-hidden="true">7</span>
         <span>행운번호</span>
       </a>
-      <span class="top-note">오늘의 행운을 만나보세요</span>
+      <div class="topbar-right">
+        <span class="top-note">오늘의 행운을 만나보세요</span>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="테마 전환">
+          <span id="theme-icon" aria-hidden="true">🌙</span>
+        </button>
+      </div>
     </header>
 
     <main>
@@ -300,6 +372,23 @@
     const balls = document.querySelector("#balls");
     const button = document.querySelector("#draw-button");
     const hint = document.querySelector("#hint");
+    const themeToggle = document.querySelector("#theme-toggle");
+    const themeIcon = document.querySelector("#theme-icon");
+    const rootElement = document.documentElement;
+
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+      rootElement.classList.add("dark");
+      themeIcon.textContent = "☀️";
+    }
+
+    themeToggle.addEventListener("click", () => {
+      const isDark = rootElement.classList.toggle("dark");
+      themeIcon.textContent = isDark ? "☀️" : "🌙";
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
 
     button.addEventListener("click", () => {
       const numbers = Array.from({ length: 45 }, (_, index) => index + 1);
