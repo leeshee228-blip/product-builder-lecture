@@ -292,7 +292,7 @@
       border-radius: 50%;
     }
 
-    .partnership-card {
+    .partnership-card, .comments-card {
       margin: 36px auto 0;
       padding: 38px 36px 32px;
       border: 1px solid var(--card-border);
@@ -303,14 +303,14 @@
       text-align: left;
     }
 
-    .partnership-title {
+    .partnership-title, .comments-title {
       margin: 0 0 8px;
       font-size: 20px;
       font-weight: 800;
       letter-spacing: -.5px;
     }
 
-    .partnership-desc {
+    .partnership-desc, .comments-desc {
       margin: 0 0 24px;
       color: var(--intro);
       font-size: 14px;
@@ -387,7 +387,7 @@
       .topbar { margin-bottom: 56px; }
       .top-note { font-size: 11px; }
       .intro { font-size: 14px; }
-      .draw-card, .partnership-card { margin-top: 32px; padding: 30px 14px 26px; border-radius: 20px; }
+      .draw-card, .partnership-card, .comments-card { margin-top: 32px; padding: 30px 14px 26px; border-radius: 20px; }
       .balls { gap: 7px; margin: 25px 0 27px; }
       .draw-button { min-width: 205px; min-height: 53px; }
       .disclaimer { margin-top: 36px; }
@@ -465,6 +465,25 @@
           </div>
           <button class="submit-button" type="submit">제휴 문의 보내기</button>
         </form>
+      </section>
+
+      <section class="comments-card" aria-labelledby="comments-heading">
+        <h2 class="comments-title" id="comments-heading">💬 사용자 의견 및 댓글</h2>
+        <p class="comments-desc">서비스에 대한 피드백이나 소통을 자유롭게 남겨주세요.</p>
+        <div id="disqus_thread"></div>
+        <script>
+            var disqus_config = function () {
+            this.page.url = window.location.href;
+            this.page.identifier = window.location.pathname;
+            };
+            (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://productbuilder-z1mbhxuzjp.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
       </section>
 
       <p class="disclaimer">추첨 결과는 무작위로 생성되며 당첨을 보장하지 않습니다.<br>재미로 가볍게 즐겨주세요 🍀</p>
