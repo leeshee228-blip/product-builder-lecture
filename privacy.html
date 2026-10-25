@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8fc">
+  <meta name="description" content="행운번호 서비스의 개인정보처리방침입니다. 이용자의 개인정보 보호 및 구글 애드센스 정책 준수 사항을 안내합니다.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://leeshee228-blip.github.io/product-builder-lecture/privacy.html">
+
+  <meta name="google-adsense-account" content="ca-pub-3066405936281794">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3066405936281794" crossorigin="anonymous"></script>
+
+  <title>개인정보처리방침 - 행운번호</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+      color: #172033;
+      background: #f7f8fc;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+
+      --bg: #f7f8fc;
+      --card-bg: rgba(255, 255, 255, .88);
+      --card-border: rgba(230, 232, 242, .9);
+      --text: #172033;
+      --intro: #777f93;
+      --hint: #9299aa;
+      --eyebrow-bg: rgba(255, 255, 255, .72);
+      --eyebrow-border: #e8e8f5;
+      --placeholder-bg: #f6f7fb;
+      --placeholder-border: #d8dbea;
+      --radial-gradient: radial-gradient(ellipse at 50% 0%, rgba(223, 232, 255, .72), transparent 42rem);
+      --toggle-bg: #eef0f8;
+      --toggle-hover: #e2e5f2;
+      --toggle-text: #4a526d;
+      --disclaimer: #a0a6b4;
+    }
+
+    :root.dark {
+      color-scheme: dark;
+      --bg: #0b0f19;
+      --card-bg: rgba(17, 24, 39, .88);
+      --card-border: rgba(31, 41, 55, .9);
+      --text: #f3f4f6;
+      --intro: #9ca3af;
+      --hint: #9ca3af;
+      --eyebrow-bg: rgba(17, 24, 39, .72);
+      --eyebrow-border: #1f2937;
+      --placeholder-bg: #1f2937;
+      --placeholder-border: #374151;
+      --radial-gradient: radial-gradient(ellipse at 50% 0%, rgba(30, 41, 59, .5), transparent 42rem);
+      --toggle-bg: #1f2937;
+      --toggle-hover: #374151;
+      --toggle-text: #d1d5db;
+      --disclaimer: #6b7280;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      background: var(--radial-gradient), var(--bg);
+      color: var(--text);
+      transition: background .3s ease, color .3s ease;
+    }
+
+    button { font: inherit; }
+
+    .page {
+      width: min(100% - 40px, 900px);
+      margin: 0 auto;
+      padding: 32px 0 48px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 56px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: inherit;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -.6px;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border-radius: 11px;
+      background: #6658e8;
+      color: white;
+      font-size: 19px;
+      box-shadow: 0 5px 12px rgba(102, 88, 232, .24);
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      padding: 0;
+      border: 0;
+      border-radius: 12px;
+      background: var(--toggle-bg);
+      color: var(--toggle-text);
+      cursor: pointer;
+      font-size: 17px;
+      transition: background .18s ease, transform .18s ease;
+    }
+
+    .theme-toggle:hover {
+      background: var(--toggle-hover);
+      transform: scale(1.05);
+    }
+
+    .theme-toggle:focus-visible { outline: 2px solid #6658e8; outline-offset: 2px; }
+
+    .privacy-card {
+      padding: 44px 40px;
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      background: var(--card-bg);
+      box-shadow: 0 18px 55px rgba(47, 54, 90, .08);
+      backdrop-filter: blur(8px);
+      text-align: left;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(26px, 5vw, 36px);
+      font-weight: 850;
+      letter-spacing: -1.2px;
+    }
+
+    .privacy-subtitle {
+      margin: 0 0 32px;
+      color: var(--intro);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    h2 {
+      margin: 32px 0 12px;
+      font-size: 18px;
+      font-weight: 750;
+      color: #6658e8;
+    }
+
+    p {
+      margin: 0 0 16px;
+      color: var(--intro);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    ul {
+      margin: 0 0 16px;
+      padding-left: 20px;
+      color: var(--intro);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 36px;
+      padding: 12px 24px;
+      border: 0;
+      border-radius: 12px;
+      background: #6658e8;
+      color: white;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 6px 16px rgba(102, 88, 232, .25);
+      transition: background .18s ease, transform .18s ease;
+    }
+
+    .back-button:hover {
+      background: #594bd9;
+      transform: translateY(-2px);
+    }
+
+    .disclaimer {
+      margin: 48px 0 0;
+      text-align: center;
+      color: var(--disclaimer);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 560px) {
+      .page { width: min(100% - 28px, 900px); padding-top: 22px; }
+      .privacy-card { padding: 30px 20px; border-radius: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="행운번호 홈">
+        <span class="brand-mark" aria-hidden="true">7</span>
+        <span>행운번호</span>
+      </a>
+      <div class="topbar-right">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="테마 전환">
+          <span id="theme-icon" aria-hidden="true">🌙</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <article class="privacy-card">
+        <h1>개인정보처리방침</h1>
+        <p class="privacy-subtitle">시행일자: 2026년 10월 25일</p>
+
+        <p><strong>'행운번호'</strong>(이하 '서비스')는 이용자의 개인정보를 소중하게 생각하며, 「정보통신망 이용촉진 및 정보보호 등에 관한 법률」 및 구글 애드센스(Google AdSense) 운영 정책을 준수하고 있습니다. 본 개인정보처리방침을 통해 이용자가 제공하는 개인정보가 어떠한 용도와 방식으로 이용되며 보호되고 있는지 알려드립니다.</p>
+
+        <h2>1. 수집하는 개인정보의 항목</h2>
+        <p>본 서비스는 다음과 같은 방법으로 최소한의 개인정보를 수집할 수 있습니다.</p>
+        <ul>
+          <li><strong>제휴 및 광고 문의:</strong> 성함 또는 회사명, 이메일 주소, 문의 내용 (Formspree 서비스 연동)</li>
+          <li><strong>사용자 의견 및 댓글:</strong> 닉네임, 댓글 내용 (Disqus 서비스 연동)</li>
+          <li><strong>자동 수집 항목:</strong> 방문 일시, IP 주소, 쿠키(Cookie), 브라우저 정보, 기기 정보</li>
+        </ul>
+
+        <h2>2. 개인정보의 수집 및 이용 목적</h2>
+        <p>수집된 개인정보는 다음의 목적을 위해서만 활용됩니다.</p>
+        <ul>
+          <li>제휴 및 광고 협업 문의에 대한 회신 및 원활한 의사소통 경로 확보</li>
+          <li>사용자 피드백 응대 및 서비스 품질 개선</li>
+          <li>구글 애드센스(Google AdSense)를 통한 맞춤형 광고 제공 및 트래픽 분석</li>
+        </ul>
+
+        <h2>3. 쿠키(Cookie)의 운용 및 거부</h2>
+        <p>본 서비스는 이용자에게 개별적인 맞춤 서비스를 제공하기 위해 이용 정보를 저장하고 수시로 불러오는 '쿠키(Cookie)'를 사용합니다.</p>
+        <ul>
+          <li>구글을 포함한 제3자 공급업체는 쿠키를 사용하여 사용자의 웹사이트 방문 기록을 바탕으로 광고를 게재합니다.</li>
+          <li>이용자는 웹 브라우저의 옵션을 설정함으로써 모든 쿠키를 허용하거나 거부할 수 있습니다. 단, 쿠키 저장을 거부할 경우 일부 서비스 이용에 어려움이 발생할 수 있습니다.</li>
+        </ul>
+
+        <h2>4. 개인정보의 보유 및 이용 기간</h2>
+        <p>이용자의 개인정보는 수집 및 이용 목적이 달성된 후에는 지체 없이 파기합니다. 단, 관계 법령의 규정에 의하여 보존할 필요가 있는 경우 일정 기간 동안 보관합니다.</p>
+
+        <h2>5. 개인정보 보호 책임자 및 문의</h2>
+        <p>서비스 이용 중 발생하는 모든 개인정보 보호 관련 민원이나 문의사항은 하단의 '제휴 및 광고 문의' 또는 이메일을 통해 연락해 주시기 바랍니다.</p>
+
+        <a class="back-button" href="index.html">← 메인으로 돌아가기</a>
+      </article>
+    </main>
+
+    <footer class="disclaimer">
+      <p>Copyright © 행운번호 All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    const themeToggle = document.querySelector("#theme-toggle");
+    const themeIcon = document.querySelector("#theme-icon");
+    const rootElement = document.documentElement;
+
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+      rootElement.classList.add("dark");
+      themeIcon.textContent = "☀️";
+    }
+
+    themeToggle.addEventListener("click", () => {
+      const isDark = rootElement.classList.toggle("dark");
+      themeIcon.textContent = isDark ? "☀️" : "🌙";
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+  </script>
+</body>
+</html>
