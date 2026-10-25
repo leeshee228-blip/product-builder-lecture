@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8fc">
+  <title>행운번호 - 로또 번호 추첨</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+      color: #172033;
+      background: #f7f8fc;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(223, 232, 255, .72), transparent 42rem),
+        #f7f8fc;
+    }
+
+    button { font: inherit; }
+
+    .page {
+      width: min(100% - 40px, 900px);
+      margin: 0 auto;
+      padding: 32px 0 48px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 72px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: inherit;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -.6px;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border-radius: 11px;
+      background: #6658e8;
+      color: white;
+      font-size: 19px;
+      box-shadow: 0 5px 12px rgba(102, 88, 232, .24);
+    }
+
+    .top-note {
+      color: #838ba0;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    main { text-align: center; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 12px;
+      border: 1px solid #e8e8f5;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .72);
+      color: #6658e8;
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: .2px;
+    }
+
+    h1 {
+      margin: 20px 0 12px;
+      font-size: clamp(34px, 7vw, 54px);
+      font-weight: 850;
+      letter-spacing: -2.6px;
+      line-height: 1.15;
+    }
+
+    h1 span { color: #6658e8; }
+
+    .intro {
+      margin: 0;
+      color: #777f93;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .draw-card {
+      margin: 42px auto 0;
+      padding: 38px 36px 32px;
+      border: 1px solid rgba(230, 232, 242, .9);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, .88);
+      box-shadow: 0 18px 55px rgba(47, 54, 90, .08);
+    }
+
+    .card-label {
+      margin: 0;
+      color: #7e8598;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+
+    .balls {
+      display: flex;
+      min-height: 76px;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(7px, 2vw, 14px);
+      margin: 28px 0 30px;
+    }
+
+    .ball {
+      display: grid;
+      width: clamp(42px, 10vw, 66px);
+      aspect-ratio: 1;
+      flex: 0 0 auto;
+      place-items: center;
+      border: 1px solid rgba(0, 0, 0, .04);
+      border-radius: 50%;
+      color: white;
+      font-size: clamp(16px, 4vw, 23px);
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      box-shadow: inset 0 -4px 0 rgba(0, 0, 0, .1), 0 5px 10px rgba(27, 35, 56, .12);
+      animation: pop-in .38s both cubic-bezier(.2, .8, .2, 1);
+    }
+
+    .ball.placeholder {
+      border: 1px dashed #d8dbea;
+      background: #f6f7fb;
+      color: #b7bdcd;
+      box-shadow: none;
+      animation: none;
+    }
+
+    .ball-1 { background: #f5b72c; }
+    .ball-2 { background: #4d8fe8; }
+    .ball-3 { background: #ed6268; }
+    .ball-4 { background: #9299a8; }
+    .ball-5 { background: #61b979; }
+
+    @keyframes pop-in {
+      from { opacity: 0; transform: translateY(9px) scale(.82); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .draw-button {
+      display: inline-flex;
+      min-width: 224px;
+      min-height: 56px;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 24px;
+      border: 0;
+      border-radius: 15px;
+      background: #6658e8;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 750;
+      box-shadow: 0 8px 18px rgba(102, 88, 232, .25);
+      transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
+    }
+
+    .draw-button:hover {
+      transform: translateY(-2px);
+      background: #594bd9;
+      box-shadow: 0 11px 22px rgba(102, 88, 232, .3);
+    }
+
+    .draw-button:active { transform: translateY(0); }
+    .draw-button:focus-visible { outline: 3px solid #bcb5ff; outline-offset: 3px; }
+
+    .button-icon { font-size: 19px; line-height: 1; }
+
+    .hint {
+      min-height: 20px;
+      margin: 16px 0 0;
+      color: #9299aa;
+      font-size: 12px;
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px 20px;
+      margin-top: 27px;
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: #737b8e;
+      font-size: 12px;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .disclaimer {
+      margin: 48px 0 0;
+      color: #a0a6b4;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 560px) {
+      .page { width: min(100% - 28px, 900px); padding-top: 22px; }
+      .topbar { margin-bottom: 56px; }
+      .top-note { font-size: 11px; }
+      .intro { font-size: 14px; }
+      .draw-card { margin-top: 32px; padding: 30px 14px 26px; border-radius: 20px; }
+      .balls { gap: 7px; margin: 25px 0 27px; }
+      .draw-button { min-width: 205px; min-height: 53px; }
+      .disclaimer { margin-top: 36px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="행운번호 홈">
+        <span class="brand-mark" aria-hidden="true">7</span>
+        <span>행운번호</span>
+      </a>
+      <span class="top-note">오늘의 행운을 만나보세요</span>
+    </header>
+
+    <main>
+      <div class="eyebrow"><span aria-hidden="true">✦</span> LOTTO NUMBER PICKER</div>
+      <h1>행운의 번호를<br><span>뽑아보세요</span></h1>
+      <p class="intro">버튼을 누르면 1부터 45까지의 숫자 중<br>행운의 로또 번호 6개를 추첨해 드려요.</p>
+
+      <section class="draw-card" aria-labelledby="result-label">
+        <p class="card-label" id="result-label">나의 행운 번호</p>
+        <div class="balls" id="balls" aria-live="polite" aria-label="아직 추첨 전입니다">
+          <span class="ball placeholder">?</span>
+          <span class="ball placeholder">?</span>
+          <span class="ball placeholder">?</span>
+          <span class="ball placeholder">?</span>
+          <span class="ball placeholder">?</span>
+          <span class="ball placeholder">?</span>
+        </div>
+        <button class="draw-button" id="draw-button" type="button">
+          <span class="button-icon" aria-hidden="true">↻</span>
+          <span>번호 추첨하기</span>
+        </button>
+        <p class="hint" id="hint">당신의 오늘은 어떤 숫자일까요?</p>
+        <div class="legend" aria-label="번호 색상 안내">
+          <span class="legend-item"><span class="legend-dot ball-1"></span>1–10</span>
+          <span class="legend-item"><span class="legend-dot ball-2"></span>11–20</span>
+          <span class="legend-item"><span class="legend-dot ball-3"></span>21–30</span>
+          <span class="legend-item"><span class="legend-dot ball-4"></span>31–40</span>
+          <span class="legend-item"><span class="legend-dot ball-5"></span>41–45</span>
+        </div>
+      </section>
+
+      <p class="disclaimer">추첨 결과는 무작위로 생성되며 당첨을 보장하지 않습니다.<br>재미로 가볍게 즐겨주세요 🍀</p>
+    </main>
+  </div>
+
+  <script>
+    const balls = document.querySelector("#balls");
+    const button = document.querySelector("#draw-button");
+    const hint = document.querySelector("#hint");
+
+    button.addEventListener("click", () => {
+      const numbers = Array.from({ length: 45 }, (_, index) => index + 1);
+
+      for (let index = numbers.length - 1; index > 0; index -= 1) {
+        const randomIndex = Math.floor(Math.random() * (index + 1));
+        [numbers[index], numbers[randomIndex]] = [numbers[randomIndex], numbers[index]];
+      }
+
+      const result = numbers.slice(0, 6).sort((a, b) => a - b);
+      balls.replaceChildren(...result.map((number, index) => {
+        const ball = document.createElement("span");
+        const color = Math.min(Math.ceil(number / 10), 5);
+        ball.className = `ball ball-${color}`;
+        ball.style.animationDelay = `${index * 55}ms`;
+        ball.textContent = String(number);
+        return ball;
+      }));
+      balls.setAttribute("aria-label", `추첨 결과: ${result.join(", ")}`);
+      hint.textContent = "새로운 행운 번호가 나왔어요!";
+    });
+  </script>
+</body>
+</html>
