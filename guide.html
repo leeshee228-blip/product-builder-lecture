@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8fc">
+  <meta name="description" content="로또 번호 추첨 원리와 당첨 확률 분석 가이드입니다. 수학적 확률 분석과 독립 시행의 원리를 확인해보세요.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://leeshee228-blip.github.io/product-builder-lecture/guide.html">
+
+  <meta name="google-adsense-account" content="ca-pub-3066405936281794">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3066405936281794" crossorigin="anonymous"></script>
+
+  <title>로또 분석 가이드 - 행운번호</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+      color: #172033;
+      background: #f7f8fc;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+
+      --bg: #f7f8fc;
+      --card-bg: rgba(255, 255, 255, .88);
+      --card-border: rgba(230, 232, 242, .9);
+      --text: #172033;
+      --intro: #777f93;
+      --hint: #9299aa;
+      --radial-gradient: radial-gradient(ellipse at 50% 0%, rgba(223, 232, 255, .72), transparent 42rem);
+      --toggle-bg: #eef0f8;
+      --toggle-hover: #e2e5f2;
+      --toggle-text: #4a526d;
+      --disclaimer: #a0a6b4;
+    }
+
+    :root.dark {
+      color-scheme: dark;
+      --bg: #0b0f19;
+      --card-bg: rgba(17, 24, 39, .88);
+      --card-border: rgba(31, 41, 55, .9);
+      --text: #f3f4f6;
+      --intro: #9ca3af;
+      --hint: #9ca3af;
+      --radial-gradient: radial-gradient(ellipse at 50% 0%, rgba(30, 41, 59, .5), transparent 42rem);
+      --toggle-bg: #1f2937;
+      --toggle-hover: #374151;
+      --toggle-text: #d1d5db;
+      --disclaimer: #6b7280;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      background: var(--radial-gradient), var(--bg);
+      color: var(--text);
+      transition: background .3s ease, color .3s ease;
+    }
+
+    button { font: inherit; }
+
+    .page {
+      width: min(100% - 40px, 900px);
+      margin: 0 auto;
+      padding: 32px 0 48px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: inherit;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -.6px;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border-radius: 11px;
+      background: #6658e8;
+      color: white;
+      font-size: 19px;
+      box-shadow: 0 5px 12px rgba(102, 88, 232, .24);
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      padding: 0;
+      border: 0;
+      border-radius: 12px;
+      background: var(--toggle-bg);
+      color: var(--toggle-text);
+      cursor: pointer;
+      font-size: 17px;
+      transition: background .18s ease, transform .18s ease;
+    }
+
+    .theme-toggle:hover {
+      background: var(--toggle-hover);
+      transform: scale(1.05);
+    }
+
+    .theme-toggle:focus-visible { outline: 2px solid #6658e8; outline-offset: 2px; }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 48px;
+      padding: 10px 16px;
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      background: var(--card-bg);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-link {
+      color: var(--intro);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 10px;
+      transition: color .18s ease, background .18s ease;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: #6658e8;
+      background: var(--toggle-bg);
+    }
+
+    .content-card {
+      padding: 44px 40px;
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      background: var(--card-bg);
+      box-shadow: 0 18px 55px rgba(47, 54, 90, .08);
+      backdrop-filter: blur(8px);
+      text-align: left;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(26px, 5vw, 36px);
+      font-weight: 850;
+      letter-spacing: -1.2px;
+    }
+
+    h2 {
+      margin: 32px 0 12px;
+      font-size: 18px;
+      font-weight: 750;
+      color: #6658e8;
+    }
+
+    p {
+      margin: 0 0 16px;
+      color: var(--intro);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    strong { color: var(--text); }
+
+    .disclaimer {
+      margin: 48px 0 0;
+      text-align: center;
+      color: var(--disclaimer);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 560px) {
+      .page { width: min(100% - 28px, 900px); padding-top: 22px; }
+      .content-card { padding: 30px 20px; border-radius: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="행운번호 홈">
+        <span class="brand-mark" aria-hidden="true">7</span>
+        <span>행운번호</span>
+      </a>
+      <div class="topbar-right">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="테마 전환">
+          <span id="theme-icon" aria-hidden="true">🌙</span>
+        </button>
+      </div>
+    </header>
+
+    <nav class="nav-links" aria-label="메인 메뉴">
+      <a href="index.html" class="nav-link">홈</a>
+      <a href="guide.html" class="nav-link active">가이드</a>
+      <a href="faq.html" class="nav-link">FAQ</a>
+      <a href="partnership.html" class="nav-link">제휴문의</a>
+      <a href="privacy.html" class="nav-link">개인정보처리방침</a>
+    </nav>
+
+    <main>
+      <article class="content-card">
+        <h1>📊 로또 번호 추첨 원리와 당첨 확률 분석 가이드</h1>
+        <p>로또(Lotto)는 전 세계 수많은 사람들에게 소소한 즐거움과 희망을 선사하는 대표적인 복권 게임입니다. 대한민국 나눔로또(동행복권) 기준, 1부터 45까지의 숫자 중에서 중복 없이 6개의 번호를 선택하여 당첨 번호와 일치하는 개수에 따라 순위가 결정됩니다.</p>
+        
+        <h2>1. 로또 당첨 확률의 수학적 분석</h2>
+        <p>1부터 45개의 숫자 중 6개를 고르는 조합의 수는 수학적으로 $_{45}C_6$, 즉 <strong>8,145,060가지</strong>입니다. 이 중 1등에 당첨될 확률은 단 1가지 경우의 수이므로 약 814만 분의 1(0.000012%)입니다. 확률적으로 매우 낮지만, 매주 수많은 사람들이 자신만의 행운을 기대하며 참여하고 있습니다.</p>
+
+        <h2>2. 번호 선택의 무작위성과 독립 시행</h2>
+        <p>많은 플레이어들이 과거 당첨 번호 통계, 홀짝 비율, 고저 비율, 특정 번호의 출현 빈도(핫 넘버와 콜드 넘버)를 분석합니다. 하지만 매 회차의 추첨은 이전 결과와 무관한 <strong>독립 시행</strong>이며, 추첨 기계와 공의 물리적 특성에 의해 완전히 무작위로 결정됩니다. 본 사이트의 행운번호 추첨기는 이러한 무작위성을 반영하여 공정하고 무작위적인 번호 조합을 제공합니다.</p>
+
+        <h2>3. 건전하고 즐거운 복권 문화</h2>
+        <p>복권은 과도한 투기나 일확천금의 수단이 아닌, 생활 속의 가벼운 오락과 희망으로 즐기는 것이 가장 바람직합니다. 본 서비스는 사용자가 간편하게 번호를 생성하고 가볍게 즐길 수 있도록 제작되었습니다.</p>
+      </article>
+    </main>
+
+    <footer class="disclaimer">
+      <p>Copyright © 행운번호 All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    const themeToggle = document.querySelector("#theme-toggle");
+    const themeIcon = document.querySelector("#theme-icon");
+    const rootElement = document.documentElement;
+
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+      rootElement.classList.add("dark");
+      themeIcon.textContent = "☀️";
+    }
+
+    themeToggle.addEventListener("click", () => {
+      const isDark = rootElement.classList.toggle("dark");
+      themeIcon.textContent = isDark ? "☀️" : "🌙";
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+  </script>
+</body>
+</html>

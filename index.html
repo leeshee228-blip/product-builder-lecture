@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f7f8fc">
-  <meta name="description" content="1부터 45까지의 행운의 로또 번호를 무작위로 추첨해 드리는 서비스입니다. 로또 당첨 확률 분석 가이드, 통계 정보, 사용자 의견, 제휴 문의 및 개인정보처리방침을 제공합니다.">
+  <meta name="description" content="1부터 45까지의 행운의 로또 번호를 무작위로 추첨해 드리는 서비스입니다. 로또 당첨 확률 분석 가이드, 통계 정보, 사용자 의견 및 제휴 문의를 제공합니다.">
   <meta name="keywords" content="로또번호추첨기, 로또당첨확률, 행운번호, 로또분석, 로또번호생성, 로또통계">
   <link rel="canonical" href="https://leeshee228-blip.github.io/product-builder-lecture/">
   
@@ -90,7 +90,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 72px;
+      margin-bottom: 24px;
     }
 
     .brand {
@@ -151,6 +151,34 @@
 
     .theme-toggle:focus-visible { outline: 2px solid #6658e8; outline-offset: 2px; }
 
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 48px;
+      padding: 10px 16px;
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      background: var(--card-bg);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-link {
+      color: var(--intro);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 10px;
+      transition: color .18s ease, background .18s ease;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: #6658e8;
+      background: var(--toggle-bg);
+    }
+
     main { text-align: center; }
 
     .eyebrow {
@@ -184,8 +212,8 @@
       line-height: 1.7;
     }
 
-    .draw-card {
-      margin: 42px auto 0;
+    .draw-card, .comments-card, .ad-card {
+      margin: 36px auto 0;
       padding: 38px 36px 32px;
       border: 1px solid var(--card-border);
       border-radius: 24px;
@@ -194,12 +222,45 @@
       backdrop-filter: blur(8px);
     }
 
-    .card-label {
-      margin: 0;
+    .ad-card {
+      text-align: center;
+      padding: 24px;
+    }
+
+    .ad-label {
+      margin-bottom: 12px;
+      color: var(--hint);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .card-label, .comments-title {
+      margin: 0 0 8px;
       color: var(--intro);
       font-size: 13px;
       font-weight: 700;
       letter-spacing: .2px;
+    }
+
+    .comments-card {
+      text-align: left;
+    }
+
+    .comments-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -.5px;
+      margin-bottom: 6px;
+    }
+
+    .comments-desc {
+      margin: 0 0 24px;
+      color: var(--intro);
+      font-size: 14px;
+      line-height: 1.6;
     }
 
     .balls {
@@ -305,163 +366,8 @@
       border-radius: 50%;
     }
 
-    .partnership-card, .comments-card, .ad-card, .content-card {
-      margin: 36px auto 0;
-      padding: 38px 36px 32px;
-      border: 1px solid var(--card-border);
-      border-radius: 24px;
-      background: var(--card-bg);
-      box-shadow: 0 18px 55px rgba(47, 54, 90, .08);
-      backdrop-filter: blur(8px);
-      text-align: left;
-    }
-
-    .ad-card {
-      text-align: center;
-      padding: 24px;
-    }
-
-    .ad-label {
-      margin-bottom: 12px;
-      color: var(--hint);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .partnership-title, .comments-title, .content-card h2 {
-      margin: 0 0 12px;
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: -.5px;
-    }
-
-    .partnership-desc, .comments-desc {
-      margin: 0 0 24px;
-      color: var(--intro);
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .content-card h3 {
-      margin: 24px 0 10px;
-      font-size: 16px;
-      font-weight: 750;
-      color: #6658e8;
-    }
-
-    .content-card p {
-      margin: 0 0 14px;
-      color: var(--intro);
-      font-size: 15px;
-      line-height: 1.75;
-    }
-
-    .faq-list {
-      display: grid;
-      gap: 16px;
-      margin-top: 20px;
-    }
-
-    .faq-item {
-      padding: 20px;
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
-      background: var(--placeholder-bg);
-    }
-
-    .faq-question {
-      margin: 0 0 8px;
-      font-size: 15px;
-      font-weight: 750;
-      color: var(--text);
-    }
-
-    .faq-answer {
-      margin: 0;
-      color: var(--intro);
-      font-size: 14px;
-      line-height: 1.7;
-    }
-
-    .form-group {
-      margin-bottom: 16px;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--text);
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .form-input, .form-textarea {
-      width: 100%;
-      padding: 12px 16px;
-      border: 1px solid var(--card-border);
-      border-radius: 12px;
-      background: var(--placeholder-bg);
-      color: var(--text);
-      font: inherit;
-      font-size: 14px;
-      transition: border-color .18s ease, box-shadow .18s ease;
-    }
-
-    .form-input:focus, .form-textarea:focus {
-      outline: none;
-      border-color: #6658e8;
-      box-shadow: 0 0 0 3px rgba(102, 88, 232, .18);
-    }
-
-    .form-textarea {
-      resize: vertical;
-      min-height: 90px;
-    }
-
-    .submit-button {
-      display: inline-flex;
-      width: 100%;
-      min-height: 50px;
-      align-items: center;
-      justify-content: center;
-      margin-top: 8px;
-      border: 0;
-      border-radius: 12px;
-      background: #6658e8;
-      color: white;
-      cursor: pointer;
-      font-size: 15px;
-      font-weight: 750;
-      box-shadow: 0 6px 16px rgba(102, 88, 232, .25);
-      transition: transform .18s ease, background .18s ease;
-    }
-
-    .submit-button:hover {
-      transform: translateY(-2px);
-      background: #594bd9;
-    }
-
-    .site-footer-links {
-      margin: 36px 0 0;
-      text-align: center;
-    }
-
-    .site-footer-links a {
-      color: var(--intro);
-      font-size: 13px;
-      font-weight: 600;
-      text-decoration: underline;
-      transition: color .18s ease;
-    }
-
-    .site-footer-links a:hover {
-      color: #6658e8;
-    }
-
     .disclaimer {
-      margin: 24px 0 0;
+      margin: 48px 0 0;
       color: var(--disclaimer);
       font-size: 12px;
       line-height: 1.7;
@@ -469,10 +375,11 @@
 
     @media (max-width: 560px) {
       .page { width: min(100% - 28px, 900px); padding-top: 22px; }
-      .topbar { margin-bottom: 56px; }
+      .topbar { margin-bottom: 20px; }
+      .nav-links { margin-bottom: 36px; }
       .top-note { font-size: 11px; }
       .intro { font-size: 14px; }
-      .draw-card, .partnership-card, .comments-card, .ad-card, .content-card { margin-top: 32px; padding: 30px 14px 26px; border-radius: 20px; }
+      .draw-card, .comments-card, .ad-card { margin-top: 32px; padding: 30px 14px 26px; border-radius: 20px; }
       .balls { gap: 7px; margin: 25px 0 27px; }
       .draw-button { min-width: 205px; min-height: 53px; }
       .disclaimer { margin-top: 36px; }
@@ -491,7 +398,7 @@
 <body>
   <div class="page">
     <header class="topbar">
-      <a class="brand" href="#" aria-label="행운번호 홈">
+      <a class="brand" href="index.html" aria-label="행운번호 홈">
         <span class="brand-mark" aria-hidden="true">7</span>
         <span>행운번호</span>
       </a>
@@ -503,8 +410,16 @@
       </div>
     </header>
 
+    <nav class="nav-links" aria-label="메인 메뉴">
+      <a href="index.html" class="nav-link active">홈</a>
+      <a href="guide.html" class="nav-link">가이드</a>
+      <a href="faq.html" class="nav-link">FAQ</a>
+      <a href="partnership.html" class="nav-link">제휴문의</a>
+      <a href="privacy.html" class="nav-link">개인정보처리방침</a>
+    </nav>
+
     <main>
-      <div class="eyebrow"><span aria-hidden="true">✦</span> LOTTO NUMBER PICKER & GUIDE</div>
+      <div class="eyebrow"><span aria-hidden="true">✦</span> LOTTO NUMBER PICKER</div>
       <h1>행운의 번호를<br><span>뽑아보세요</span></h1>
       <p class="intro">버튼을 누르면 1부터 45까지의 숫자 중<br>행운의 로또 번호 6개를 추첨해 드려요.</p>
 
@@ -545,58 +460,6 @@
         </script>
       </section>
 
-      <section class="content-card" aria-labelledby="guide-heading">
-        <h2 id="guide-heading">📊 로또 번호 추첨 원리와 당첨 확률 분석 가이드</h2>
-        <p>로또(Lotto)는 전 세계 수많은 사람들에게 소소한 즐거움과 희망을 선사하는 대표적인 복권 게임입니다. 대한민국 나눔로또(동행복권) 기준, 1부터 45까지의 숫자 중에서 중복 없이 6개의 번호를 선택하여 당첨 번호와 일치하는 개수에 따라 순위가 결정됩니다.</p>
-        
-        <h3>1. 로또 당첨 확률의 수학적 분석</h3>
-        <p>1부터 45개의 숫자 중 6개를 고르는 조합의 수는 수학적으로 $_{45}C_6$, 즉 <strong>8,145,060가지</strong>입니다. 이 중 1등에 당첨될 확률은 단 1가지 경우의 수이므로 약 814만 분의 1(0.000012%)입니다. 확률적으로 매우 낮지만, 매주 수많은 사람들이 자신만의 행운을 기대하며 참여하고 있습니다.</p>
-
-        <h3>2. 번호 선택의 무작위성과 독립 시행</h3>
-        <p>많은 플레이어들이 과거 당첨 번호 통계, 홀짝 비율, 고저 비율, 특정 번호의 출현 빈도(핫 넘버와 콜드 넘버)를 분석합니다. 하지만 매 회차의 추첨은 이전 결과와 무관한 **독립 시행**이며, 추첨 기계와 공의 물리적 특성에 의해 완전히 무작위로 결정됩니다. 본 사이트의 행운번호 추첨기는 이러한 무작위성을 반영하여 공정하고 무작위적인 번호 조합을 제공합니다.</p>
-
-        <h3>3. 건전하고 즐거운 복권 문화</h3>
-        <p>복권은 과도한 투기나 일확천금의 수단이 아닌, 생활 속의 가벼운 오락과 희망으로 즐기는 것이 가장 바람직합니다. 본 서비스는 사용자가 간편하게 번호를 생성하고 가볍게 즐길 수 있도록 제작되었습니다.</p>
-      </section>
-
-      <section class="content-card" aria-labelledby="faq-heading">
-        <h2 id="faq-heading">❓ 자주 묻는 질문 (FAQ)</h2>
-        <div class="faq-list">
-          <div class="faq-item">
-            <h3 class="faq-question">Q. 본 사이트의 추첨기로 당첨된 번호를 받을 수 있나요?</h3>
-            <p class="faq-answer">본 사이트의 번호 추첨기는 순수 난수(Random) 알고리즘을 사용하여 번호를 무작위로 생성합니다. 당첨을 보장하지 않으며, 오직 재미와 참고용으로만 활용해 주시기 바랍니다.</p>
-          </div>
-          <div class="faq-item">
-            <h3 class="faq-question">Q. 다크모드는 어떻게 이용하나요?</h3>
-            <p class="faq-answer">화면 우측 상단의 달(🌙) 또는 해(☀️) 아이콘 버튼을 클릭하시면 사용자의 취향이나 주변 조도에 맞춰 다크모드와 라이트모드를 즉시 전환하실 수 있습니다. 설정은 브라우저에 저장됩니다.</p>
-          </div>
-          <div class="faq-item">
-            <h3 class="faq-question">Q. 제휴 및 광고 협업은 어떻게 하나요?</h3>
-            <p class="faq-answer">페이지 하단의 '제휴 및 광고 문의' 양식을 통해 회사명, 이메일, 문의 내용을 남겨주시면 확인 후 신속하게 회신해 드립니다.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="partnership-card" aria-labelledby="partnership-heading">
-        <h2 class="partnership-title" id="partnership-heading">🤝 제휴 및 광고 문의</h2>
-        <p class="partnership-desc">서비스 제휴나 광고 협업 관련 궁금하신 점을 남겨주시면 빠르게 답변해 드리겠습니다.</p>
-        <form action="https://formspree.io/f/xwllvvle" method="POST">
-          <div class="form-group">
-            <label for="name">성함 또는 회사명</label>
-            <input class="form-input" id="name" name="name" type="text" required placeholder="홍길동 또는 (주)회사명">
-          </div>
-          <div class="form-group">
-            <label for="email">이메일 주소</label>
-            <input class="form-input" id="email" name="email" type="email" required placeholder="name@example.com">
-          </div>
-          <div class="form-group">
-            <label for="message">문의 내용</label>
-            <textarea class="form-textarea" id="message" name="message" required placeholder="제휴 내용이나 문의사항을 입력해 주세요."></textarea>
-          </div>
-          <button class="submit-button" type="submit">제휴 문의 보내기</button>
-        </form>
-      </section>
-
       <section class="comments-card" aria-labelledby="comments-heading">
         <h2 class="comments-title" id="comments-heading">💬 사용자 의견 및 댓글</h2>
         <p class="comments-desc">서비스에 대한 피드백이나 소통을 자유롭게 남겨주세요.</p>
@@ -615,10 +478,6 @@
         </script>
         <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
       </section>
-
-      <div class="site-footer-links">
-        <a href="privacy.html">개인정보처리방침</a>
-      </div>
 
       <p class="disclaimer">추첨 결과는 무작위로 생성되며 당첨을 보장하지 않습니다.<br>재미로 가볍게 즐겨주세요 🍀</p>
     </main>
