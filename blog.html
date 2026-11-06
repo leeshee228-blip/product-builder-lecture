@@ -1,0 +1,1061 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8fc">
+  <meta name="description" content="가게 이름과 메뉴, 사진만 넣으면 원하는 말투로 네이버 블로그 맛집 리뷰 글을 자동으로 만들어 드립니다.">
+  <meta name="keywords" content="네이버블로그, 맛집리뷰, 블로그글쓰기, 맛집포스팅, 블로그자동화, 리뷰작성">
+  <link rel="canonical" href="https://leeshee228-blip.github.io/product-builder-lecture/blog.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="맛집 블로그 글 자동 작성기">
+  <meta property="og:description" content="최소한의 정보와 사진만으로 네이버 블로그 맛집 소개 글을 원하는 말투로 만들어 보세요.">
+  <meta property="og:url" content="https://leeshee228-blip.github.io/product-builder-lecture/blog.html">
+
+  <meta name="google-adsense-account" content="ca-pub-3066405936281794">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FS9REVMRSE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FS9REVMRSE');
+  </script>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "z49gyd1j8d");
+  </script>
+
+  <title>맛집 블로그 글 자동 작성기 - 행운번호</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+      font-synthesis: none;
+      -webkit-font-smoothing: antialiased;
+
+      --bg: #f7f8fc;
+      --card-bg: rgba(255, 255, 255, .92);
+      --card-border: rgba(230, 232, 242, .9);
+      --text: #172033;
+      --intro: #777f93;
+      --hint: #9299aa;
+      --field-bg: #ffffff;
+      --field-border: #dfe2ee;
+      --chip-bg: #f1f2f8;
+      --accent: #6658e8;
+      --accent-soft: #eeecff;
+      --naver: #03c75a;
+      --paper: #ffffff;
+      --paper-text: #333333;
+      --quote-bg: #f7f7f7;
+      --radial-gradient: radial-gradient(ellipse at 50% 0%, rgba(223, 232, 255, .72), transparent 42rem);
+      --toggle-bg: #eef0f8;
+      --toggle-hover: #e2e5f2;
+      --toggle-text: #4a526d;
+      --danger: #d94a55;
+    }
+
+    :root.dark {
+      color-scheme: dark;
+      --bg: #0b0f19;
+      --card-bg: rgba(17, 24, 39, .92);
+      --card-border: rgba(31, 41, 55, .9);
+      --text: #f3f4f6;
+      --intro: #9ca3af;
+      --hint: #9ca3af;
+      --field-bg: #111827;
+      --field-border: #374151;
+      --chip-bg: #1f2937;
+      --accent-soft: #272449;
+      --paper: #161d2b;
+      --paper-text: #e5e7eb;
+      --quote-bg: #1f2937;
+      --radial-gradient: radial-gradient(ellipse at 50% 0%, rgba(30, 41, 59, .5), transparent 42rem);
+      --toggle-bg: #1f2937;
+      --toggle-hover: #374151;
+      --toggle-text: #d1d5db;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      background: var(--radial-gradient), var(--bg);
+      color: var(--text);
+    }
+
+    button, input, select, textarea { font: inherit; color: inherit; }
+
+    .page { width: min(100% - 40px, 1120px); margin: 0 auto; padding: 32px 0 48px; }
+
+    .topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; color: inherit; font-size: 18px; font-weight: 800; letter-spacing: -.6px; text-decoration: none; }
+    .brand-mark { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 11px; background: var(--accent); color: white; font-size: 19px; box-shadow: 0 5px 12px rgba(102, 88, 232, .24); }
+    .theme-toggle { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; padding: 0; border: 0; border-radius: 12px; background: var(--toggle-bg); color: var(--toggle-text); cursor: pointer; font-size: 17px; }
+    .theme-toggle:hover { background: var(--toggle-hover); }
+
+    .nav-links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 40px; padding: 10px 16px; border: 1px solid var(--card-border); border-radius: 16px; background: var(--card-bg); }
+    .nav-link { color: var(--intro); font-size: 14px; font-weight: 700; text-decoration: none; padding: 8px 14px; border-radius: 10px; }
+    .nav-link:hover, .nav-link.active { color: var(--accent); background: var(--toggle-bg); }
+
+    .hero { text-align: center; margin-bottom: 32px; }
+    .eyebrow { display: inline-flex; gap: 7px; padding: 7px 12px; border: 1px solid var(--card-border); border-radius: 999px; background: var(--card-bg); color: var(--accent); font-size: 12px; font-weight: 750; }
+    h1 { margin: 18px 0 10px; font-size: clamp(30px, 6vw, 46px); font-weight: 850; letter-spacing: -2px; line-height: 1.2; }
+    h1 span { color: var(--naver); }
+    .intro { margin: 0; color: var(--intro); font-size: 15px; line-height: 1.7; }
+
+    .layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+
+    .card { padding: 26px 24px; border: 1px solid var(--card-border); border-radius: 22px; background: var(--card-bg); box-shadow: 0 18px 55px rgba(47, 54, 90, .07); }
+    .card + .card { margin-top: 20px; }
+    .card h2 { display: flex; align-items: center; gap: 8px; margin: 0 0 4px; font-size: 18px; font-weight: 800; letter-spacing: -.4px; }
+    .step { display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 8px; background: var(--accent); color: #fff; font-size: 13px; }
+    .card-desc { margin: 0 0 18px; color: var(--intro); font-size: 13px; line-height: 1.6; }
+
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
+    .field label, .field .label { font-size: 13px; font-weight: 700; }
+    .req { color: var(--danger); }
+    .opt { color: var(--hint); font-weight: 500; font-size: 12px; }
+    input[type=text], input[type=password], input[type=date], select, textarea {
+      width: 100%; padding: 11px 12px; border: 1px solid var(--field-border); border-radius: 11px; background: var(--field-bg); font-size: 14px; outline: none;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+    textarea { resize: vertical; min-height: 76px; line-height: 1.5; }
+    .help { color: var(--hint); font-size: 12px; line-height: 1.5; }
+
+    details.more { margin-top: 4px; border-top: 1px dashed var(--field-border); padding-top: 12px; }
+    details.more summary { cursor: pointer; font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 12px; }
+
+    .stars { display: flex; gap: 4px; }
+    .stars button { border: 0; background: none; font-size: 24px; cursor: pointer; padding: 0 2px; color: #d4d7e3; }
+    .stars button.on { color: #f5b72c; }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { padding: 8px 13px; border: 1px solid var(--field-border); border-radius: 999px; background: var(--chip-bg); cursor: pointer; font-size: 13px; font-weight: 600; }
+    .chip.on { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
+
+    .tones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .tone { text-align: left; padding: 12px; border: 1.5px solid var(--field-border); border-radius: 14px; background: var(--field-bg); cursor: pointer; }
+    .tone strong { display: block; font-size: 14px; margin-bottom: 4px; }
+    .tone span { display: block; color: var(--intro); font-size: 12px; line-height: 1.45; }
+    .tone.on { border-color: var(--accent); background: var(--accent-soft); }
+    .custom-tone { display: none; margin-top: 14px; padding: 14px; border-radius: 14px; background: var(--chip-bg); }
+    .custom-tone.show { display: block; }
+
+    .dropzone { display: grid; place-items: center; gap: 6px; padding: 26px 16px; border: 2px dashed var(--field-border); border-radius: 16px; text-align: center; cursor: pointer; color: var(--intro); font-size: 13px; }
+    .dropzone.drag { border-color: var(--accent); background: var(--accent-soft); }
+    .dropzone b { color: var(--text); font-size: 15px; }
+    .photos { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; margin-top: 14px; }
+    .photo { position: relative; border: 1px solid var(--field-border); border-radius: 12px; overflow: hidden; background: var(--field-bg); }
+    .photo img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; }
+    .photo .num { position: absolute; top: 6px; left: 6px; padding: 2px 8px; border-radius: 999px; background: rgba(0,0,0,.6); color: #fff; font-size: 12px; font-weight: 700; }
+    .photo .tools { position: absolute; top: 6px; right: 6px; display: flex; gap: 4px; }
+    .photo .tools button { width: 26px; height: 26px; border: 0; border-radius: 8px; background: rgba(0,0,0,.6); color: #fff; cursor: pointer; font-size: 12px; }
+    .photo input { border: 0; border-top: 1px solid var(--field-border); border-radius: 0; padding: 8px; font-size: 12px; }
+
+    .mode { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+    .ai-box { display: none; }
+    .ai-box.show { display: block; }
+    .check { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--intro); }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; padding: 0 18px; border: 0; border-radius: 13px; cursor: pointer; font-size: 14px; font-weight: 750; }
+    .btn-primary { width: 100%; min-height: 54px; background: var(--accent); color: #fff; font-size: 16px; box-shadow: 0 8px 18px rgba(102, 88, 232, .25); }
+    .btn-primary:disabled { opacity: .6; cursor: wait; }
+    .btn-ghost { background: var(--toggle-bg); color: var(--toggle-text); }
+    .btn-naver { background: var(--naver); color: #fff; text-decoration: none; }
+    .error { display: none; margin-top: 12px; padding: 12px; border-radius: 12px; background: rgba(217, 74, 85, .1); color: var(--danger); font-size: 13px; line-height: 1.5; }
+    .error.show { display: block; }
+
+    .output { position: sticky; top: 16px; }
+    .out-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .titles { display: grid; gap: 8px; margin-bottom: 16px; }
+    .title-opt { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 12px; border: 1px solid var(--field-border); border-radius: 12px; background: var(--field-bg); font-size: 14px; font-weight: 700; }
+    .title-opt button { flex: 0 0 auto; border: 0; border-radius: 8px; padding: 5px 9px; background: var(--chip-bg); cursor: pointer; font-size: 12px; }
+
+    .paper { max-height: 72vh; overflow: auto; padding: 32px 22px; border-radius: 16px; background: var(--paper); color: var(--paper-text); border: 1px solid var(--field-border); text-align: center; font-size: 15px; line-height: 1.9; outline: none; }
+    .paper:focus { border-color: var(--accent); }
+    .paper h3 { margin: 30px 0 10px; font-size: 19px; font-weight: 800; }
+    .paper p { margin: 0 0 18px; word-break: keep-all; }
+    .paper figure { margin: 18px 0 22px; }
+    .paper figure img { max-width: 100%; border-radius: 4px; }
+    .paper figcaption { color: #999; font-size: 13px; }
+    .paper blockquote { margin: 24px auto; padding: 18px 20px; max-width: 520px; border-left: 4px solid var(--naver); background: var(--quote-bg); text-align: left; white-space: pre-line; font-size: 14px; }
+    .paper .tags { color: #2f80ed; font-size: 14px; }
+    .paper .photo-marker { display: inline-block; margin: 14px 0 20px; padding: 26px 40px; border: 2px dashed #c9cdd8; border-radius: 10px; color: #999; font-size: 13px; }
+    .empty { padding: 60px 20px; color: var(--hint); text-align: center; font-size: 14px; line-height: 1.7; }
+    .loading { display: none; padding: 60px 20px; text-align: center; color: var(--intro); font-size: 14px; }
+    .loading.show { display: block; }
+    .spinner { width: 34px; height: 34px; margin: 0 auto 14px; border: 3px solid var(--field-border); border-top-color: var(--accent); border-radius: 50%; animation: spin .8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .guide-list { margin: 0; padding-left: 18px; color: var(--intro); font-size: 13px; line-height: 1.8; }
+    .toast { position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%) translateY(20px); padding: 12px 18px; border-radius: 12px; background: #172033; color: #fff; font-size: 14px; opacity: 0; pointer-events: none; transition: .25s; z-index: 10; }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; }
+      .output { position: static; }
+    }
+    @media (max-width: 560px) {
+      .page { width: calc(100% - 32px); padding-top: 22px; }
+      .card { padding: 22px 16px; border-radius: 18px; }
+      .grid2, .tones { grid-template-columns: 1fr 1fr; }
+      .tones { gap: 8px; }
+      .paper { padding: 24px 14px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="행운번호 홈">
+        <span class="brand-mark" aria-hidden="true">7</span>
+        <span>행운번호</span>
+      </a>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="테마 전환"><span id="theme-icon" aria-hidden="true">🌙</span></button>
+    </header>
+
+    <nav class="nav-links" aria-label="메인 메뉴">
+      <a href="index.html" class="nav-link">홈</a>
+      <a href="blog.html" class="nav-link active">맛집 블로그 작성기</a>
+      <a href="guide.html" class="nav-link">가이드</a>
+      <a href="faq.html" class="nav-link">FAQ</a>
+      <a href="partnership.html" class="nav-link">제휴문의</a>
+      <a href="privacy.html" class="nav-link">개인정보처리방침</a>
+    </nav>
+
+    <section class="hero">
+      <div class="eyebrow"><span aria-hidden="true">✦</span> NAVER BLOG WRITER</div>
+      <h1>맛집 리뷰, <span>사진과 몇 줄</span>이면 끝</h1>
+      <p class="intro">가게 이름과 먹은 메뉴, 사진만 넣으면<br>원하는 말투로 네이버 블로그 맛집 글을 만들어 드려요.</p>
+    </section>
+
+    <div class="layout">
+      <div>
+        <!-- STEP 1 -->
+        <section class="card">
+          <h2><span class="step">1</span> 가게 정보</h2>
+          <p class="card-desc"><span class="req">*</span> 표시만 채워도 글이 완성돼요. 나머지는 넣을수록 글이 풍성해져요.</p>
+
+          <div class="field">
+            <label for="f-name">가게 이름 <span class="req">*</span></label>
+            <input type="text" id="f-name" placeholder="예) 을지로 소금집">
+          </div>
+          <div class="field">
+            <label for="f-menus">먹은 메뉴 <span class="req">*</span> <span class="opt">한 줄에 하나, 가격은 선택</span></label>
+            <textarea id="f-menus" placeholder="잠봉뵈르 - 9,500원&#10;바질 토마토 파스타 - 16,000원&#10;레몬에이드"></textarea>
+          </div>
+          <div class="grid2">
+            <div class="field">
+              <label for="f-area">지역 / 역 <span class="opt">선택</span></label>
+              <input type="text" id="f-area" placeholder="예) 을지로3가역">
+            </div>
+            <div class="field">
+              <label for="f-category">음식 종류 <span class="opt">선택</span></label>
+              <input type="text" id="f-category" placeholder="예) 브런치, 파스타">
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-memo">한 줄 메모 <span class="opt">좋았던 점, 기억에 남는 것</span></label>
+            <input type="text" id="f-memo" placeholder="예) 버터가 진짜 고소하고 빵이 바삭했음, 웨이팅 20분">
+          </div>
+          <div class="field">
+            <span class="label">별점</span>
+            <div class="stars" id="stars" role="radiogroup" aria-label="별점"></div>
+          </div>
+
+          <details class="more">
+            <summary>+ 정보 더 넣기 (주소, 영업시간, 동행 등)</summary>
+            <div class="field">
+              <label for="f-address">주소</label>
+              <input type="text" id="f-address" placeholder="예) 서울 중구 을지로 OO길 12">
+            </div>
+            <div class="grid2">
+              <div class="field">
+                <label for="f-hours">영업시간</label>
+                <input type="text" id="f-hours" placeholder="예) 11:30~21:00 (월 휴무)">
+              </div>
+              <div class="field">
+                <label for="f-parking">주차</label>
+                <input type="text" id="f-parking" placeholder="예) 불가, 근처 공영주차장">
+              </div>
+            </div>
+            <div class="grid2">
+              <div class="field">
+                <label for="f-date">방문일</label>
+                <input type="date" id="f-date">
+              </div>
+              <div class="field">
+                <label for="f-revisit">재방문 의사</label>
+                <select id="f-revisit">
+                  <option value="">선택 안 함</option>
+                  <option value="yes">무조건 재방문</option>
+                  <option value="maybe">근처 오면 또</option>
+                  <option value="no">한 번이면 충분</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <span class="label">누구랑 갔나요?</span>
+              <div class="chips" id="companion">
+                <button type="button" class="chip" data-v="혼밥">혼밥</button>
+                <button type="button" class="chip" data-v="친구">친구</button>
+                <button type="button" class="chip" data-v="연인">연인</button>
+                <button type="button" class="chip" data-v="가족">가족</button>
+                <button type="button" class="chip" data-v="회사 동료">회사 동료</button>
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-cons">아쉬운 점</label>
+              <input type="text" id="f-cons" placeholder="예) 자리가 좁고 웨이팅이 길어요">
+            </div>
+            <div class="field">
+              <label for="f-tags">추가 해시태그 <span class="opt">쉼표로 구분</span></label>
+              <input type="text" id="f-tags" placeholder="예) 을지로카페, 빵지순례">
+            </div>
+          </details>
+        </section>
+
+        <!-- STEP 2 -->
+        <section class="card">
+          <h2><span class="step">2</span> 사진 첨부</h2>
+          <p class="card-desc">올린 순서대로 글에 들어가요. 첫 사진은 대표(외관/간판) 사진을 추천해요. 메모를 달면 사진 설명으로 쓰여요.</p>
+          <label class="dropzone" id="dropzone">
+            <span style="font-size:28px" aria-hidden="true">📷</span>
+            <b>사진을 끌어놓거나 눌러서 선택</b>
+            <span>JPG · PNG · HEIC 제외 · 최대 20장</span>
+            <input type="file" id="file-input" accept="image/*" multiple hidden>
+          </label>
+          <div class="photos" id="photos"></div>
+        </section>
+
+        <!-- STEP 3 -->
+        <section class="card">
+          <h2><span class="step">3</span> 말투 선택</h2>
+          <p class="card-desc">블로그 분위기에 맞는 말투를 골라 주세요. 직접 만들 수도 있어요.</p>
+          <div class="tones" id="tones"></div>
+
+          <div class="custom-tone" id="custom-tone">
+            <div class="grid2">
+              <div class="field">
+                <label for="c-ending">문장 끝맺음</label>
+                <select id="c-ending">
+                  <option value="haeyo">~해요 (해요체)</option>
+                  <option value="hamnida">~합니다 (합니다체)</option>
+                  <option value="banmal">~했다 / ~함 (반말·일기체)</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="c-emoji">이모지</label>
+                <select id="c-emoji">
+                  <option value="some">적당히 😊</option>
+                  <option value="many">많이 🥰🔥✨</option>
+                  <option value="none">사용 안 함</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="c-desc">원하는 말투 설명 <span class="opt">AI 모드에서 반영</span></label>
+              <textarea id="c-desc" placeholder="예) 30대 직장인 미식가 느낌. 담백하지만 맛 표현은 구체적으로. 문단은 짧게."></textarea>
+            </div>
+            <div class="field">
+              <label for="c-sample">내 블로그 글 샘플 <span class="opt">AI가 문체를 따라 해요</span></label>
+              <textarea id="c-sample" placeholder="평소 쓰던 블로그 글을 몇 문장 붙여 넣어 주세요."></textarea>
+            </div>
+          </div>
+
+          <div class="field" style="margin-top:16px">
+            <span class="label">글 길이</span>
+            <div class="chips" id="length">
+              <button type="button" class="chip" data-v="short">짧게</button>
+              <button type="button" class="chip on" data-v="medium">보통</button>
+              <button type="button" class="chip" data-v="long">길게</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- STEP 4 -->
+        <section class="card">
+          <h2><span class="step">4</span> 글 만들기</h2>
+          <p class="card-desc">키 없이 바로 쓰는 기본 모드와, 사진까지 보고 쓰는 AI 모드가 있어요.</p>
+          <div class="mode" id="mode">
+            <button type="button" class="tone on" data-v="template"><strong>⚡ 기본 모드</strong><span>무료 · 즉시 생성 · 문장 틀 기반</span></button>
+            <button type="button" class="tone" data-v="ai"><strong>✨ AI 모드</strong><span>Claude가 사진을 보고 자연스럽게 작성</span></button>
+          </div>
+          <div class="ai-box" id="ai-box">
+            <div class="field">
+              <label for="api-key">Anthropic API 키</label>
+              <input type="password" id="api-key" placeholder="sk-ant-..." autocomplete="off">
+              <span class="help">키는 이 브라우저에서 Anthropic API로만 직접 전송되며, 이 사이트 서버로는 보내지 않아요. 사용 요금은 키 소유자에게 청구돼요.</span>
+            </div>
+            <label class="check"><input type="checkbox" id="save-key"> 이 브라우저에 키 기억하기</label>
+          </div>
+          <button class="btn btn-primary" id="generate" type="button" style="margin-top:16px">✍️ 블로그 글 만들기</button>
+          <div class="error" id="error"></div>
+        </section>
+      </div>
+
+      <!-- OUTPUT -->
+      <div class="output">
+        <section class="card">
+          <h2>📝 미리보기</h2>
+          <p class="card-desc">본문을 눌러 바로 고칠 수 있어요. 완성되면 복사해서 네이버 블로그에 붙여 넣으세요.</p>
+          <div class="out-actions" id="out-actions" hidden>
+            <button class="btn btn-ghost" id="copy-rich" type="button">📋 서식 포함 복사</button>
+            <button class="btn btn-ghost" id="copy-text" type="button">📄 텍스트만 복사</button>
+            <button class="btn btn-ghost" id="download-photos" type="button">🖼️ 사진 순서대로 저장</button>
+            <button class="btn btn-ghost" id="regen" type="button">🔄 다시 만들기</button>
+            <a class="btn btn-naver" href="https://blog.naver.com/GoBlogWrite.naver" target="_blank" rel="noopener">N 블로그 글쓰기 열기</a>
+          </div>
+          <div class="titles" id="titles"></div>
+          <div class="loading" id="loading"><div class="spinner"></div>AI가 사진을 보며 글을 쓰고 있어요…<br>보통 20~60초 걸려요.</div>
+          <div class="paper" id="paper" contenteditable="true" spellcheck="false" hidden></div>
+          <div class="empty" id="empty">왼쪽에 정보를 넣고<br><b>블로그 글 만들기</b>를 누르면 여기에 글이 나타나요.</div>
+        </section>
+
+        <section class="card">
+          <h2>💡 네이버 블로그에 올리는 법</h2>
+          <ol class="guide-list">
+            <li><b>서식 포함 복사</b> → 네이버 블로그 글쓰기 창에 붙여 넣기 (제목·인용구·정렬 유지)</li>
+            <li>본문의 <b>[사진 N]</b> 자리에 같은 번호 사진을 넣어 주세요. <b>사진 순서대로 저장</b>을 누르면 01, 02… 번호가 붙은 파일로 내려받아져요.</li>
+            <li>제목은 추천 제목 중 하나를 복사해서 쓰세요.</li>
+            <li>발행 전 가격·영업시간 등 사실 정보를 한 번 더 확인해 주세요.</li>
+          </ol>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script>
+    /* ---------- 테마 ---------- */
+    const root = document.documentElement;
+    const themeIcon = document.querySelector("#theme-icon");
+    const store = {
+      get(k) { try { return localStorage.getItem(k); } catch { return null; } },
+      set(k, v) { try { localStorage.setItem(k, v); } catch {} },
+      del(k) { try { localStorage.removeItem(k); } catch {} },
+    };
+    if (store.get("theme") === "dark" || (!store.get("theme") && matchMedia("(prefers-color-scheme: dark)").matches)) {
+      root.classList.add("dark"); themeIcon.textContent = "☀️";
+    }
+    document.querySelector("#theme-toggle").addEventListener("click", () => {
+      const dark = root.classList.toggle("dark");
+      themeIcon.textContent = dark ? "☀️" : "🌙";
+      store.set("theme", dark ? "dark" : "light");
+    });
+
+    const $ = (s) => document.querySelector(s);
+    const toast = (msg) => { const t = $("#toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(toast.t); toast.t = setTimeout(() => t.classList.remove("show"), 2200); };
+    const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
+    const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+    /* ---------- 별점 / 칩 ---------- */
+    let rating = 0;
+    const starsEl = $("#stars");
+    for (let i = 1; i <= 5; i++) {
+      const b = document.createElement("button");
+      b.type = "button"; b.textContent = "★"; b.setAttribute("aria-label", `${i}점`);
+      b.addEventListener("click", () => { rating = rating === i ? 0 : i; paintStars(); saveDraft(); });
+      starsEl.append(b);
+    }
+    function paintStars() { [...starsEl.children].forEach((b, i) => b.classList.toggle("on", i < rating)); }
+
+    function chipGroup(sel, multi) {
+      const el = $(sel);
+      el.addEventListener("click", (e) => {
+        const c = e.target.closest(".chip"); if (!c) return;
+        if (multi) c.classList.toggle("on");
+        else { const was = c.classList.contains("on"); el.querySelectorAll(".chip").forEach((x) => x.classList.remove("on")); if (!was || sel === "#length") c.classList.add("on"); }
+        saveDraft();
+      });
+      return () => [...el.querySelectorAll(".chip.on")].map((c) => c.dataset.v);
+    }
+    const getCompanion = chipGroup("#companion", false);
+    const getLength = chipGroup("#length", false);
+
+    /* ---------- 말투 ---------- */
+    const TONES = {
+      friendly: { name: "😊 친근한 이웃", desc: "~했어요! 다정하고 편안한 일상 블로그", ending: "haeyo", emoji: "some",
+        guide: "다정하고 편안한 해요체. 이웃에게 소개하듯 친근하게, 이모지는 문단마다 0~1개." },
+      bubbly: { name: "🔥 발랄 MZ", desc: "대박 ㅋㅋ 텐션 높고 생생한 후기", ending: "banmal", emoji: "many",
+        guide: "텐션 높은 MZ 말투. '대박', 'ㄹㅇ', 'ㅋㅋ' 같은 표현과 감탄사, 이모지를 적극 사용. 짧고 리듬감 있는 문장." },
+      info: { name: "📌 정보형 리뷰어", desc: "~입니다. 깔끔하고 신뢰감 있는 정보 위주", ending: "hamnida", emoji: "none",
+        guide: "차분하고 객관적인 합니다체. 가격·양·맛·분위기를 구체적으로, 과장 없이 정보 위주로 정리." },
+      emotional: { name: "🌙 감성 에세이", desc: "~했다. 잔잔하고 따뜻한 감성 기록", ending: "banmal", emoji: "none",
+        guide: "잔잔한 감성 에세이체(~했다). 그날의 분위기, 계절, 기분을 묘사하며 서정적으로." },
+      funny: { name: "🤣 유머러스", desc: "드립과 과장으로 읽는 재미가 있는 글", ending: "haeyo", emoji: "some",
+        guide: "재치 있는 드립과 유쾌한 과장이 섞인 해요체. 읽는 재미가 있지만 정보는 정확하게." },
+      custom: { name: "🎨 직접 만들기", desc: "끝맺음·이모지·문체를 내 마음대로", ending: "haeyo", emoji: "some", guide: "" },
+    };
+    let tone = "friendly";
+    const tonesEl = $("#tones");
+    Object.entries(TONES).forEach(([key, t]) => {
+      const b = document.createElement("button");
+      b.type = "button"; b.className = "tone" + (key === tone ? " on" : ""); b.dataset.v = key;
+      b.innerHTML = `<strong>${t.name}</strong><span>${t.desc}</span>`;
+      b.addEventListener("click", () => setTone(key));
+      tonesEl.append(b);
+    });
+    function setTone(key) {
+      tone = key;
+      tonesEl.querySelectorAll(".tone").forEach((b) => b.classList.toggle("on", b.dataset.v === key));
+      $("#custom-tone").classList.toggle("show", key === "custom");
+      saveDraft();
+    }
+
+    /* ---------- 모드 ---------- */
+    let mode = "template";
+    $("#mode").addEventListener("click", (e) => {
+      const b = e.target.closest(".tone"); if (!b) return;
+      mode = b.dataset.v;
+      $("#mode").querySelectorAll(".tone").forEach((x) => x.classList.toggle("on", x === b));
+      $("#ai-box").classList.toggle("show", mode === "ai");
+      saveDraft();
+    });
+    const savedKey = store.get("anthropic_key");
+    if (savedKey) { $("#api-key").value = savedKey; $("#save-key").checked = true; }
+
+    /* ---------- 사진 ---------- */
+    let photos = []; // {id, file, url, caption}
+    const photosEl = $("#photos");
+    const dz = $("#dropzone");
+    $("#file-input").addEventListener("change", (e) => { addFiles(e.target.files); e.target.value = ""; });
+    ["dragenter", "dragover"].forEach((ev) => dz.addEventListener(ev, (e) => { e.preventDefault(); dz.classList.add("drag"); }));
+    ["dragleave", "drop"].forEach((ev) => dz.addEventListener(ev, (e) => { e.preventDefault(); dz.classList.remove("drag"); }));
+    dz.addEventListener("drop", (e) => addFiles(e.dataTransfer.files));
+
+    function addFiles(list) {
+      const files = [...list].filter((f) => f.type.startsWith("image/"));
+      for (const f of files) {
+        if (photos.length >= 20) { toast("사진은 최대 20장까지 넣을 수 있어요"); break; }
+        photos.push({ id: crypto.randomUUID ? crypto.randomUUID() : String(Math.random()), file: f, url: URL.createObjectURL(f), caption: "" });
+      }
+      renderPhotos();
+    }
+    function renderPhotos() {
+      photosEl.replaceChildren(...photos.map((p, i) => {
+        const d = document.createElement("div");
+        d.className = "photo";
+        d.innerHTML = `<img alt="사진 ${i + 1}"><span class="num">${i + 1}</span>
+          <div class="tools">
+            <button type="button" data-a="left" aria-label="앞으로">◀</button>
+            <button type="button" data-a="right" aria-label="뒤로">▶</button>
+            <button type="button" data-a="del" aria-label="삭제">✕</button>
+          </div>
+          <input type="text" placeholder="사진 메모 (예: 잠봉뵈르)">`;
+        d.querySelector("img").src = p.url;
+        const inp = d.querySelector("input");
+        inp.value = p.caption;
+        inp.addEventListener("input", () => { p.caption = inp.value; });
+        d.querySelector(".tools").addEventListener("click", (e) => {
+          const a = e.target.dataset.a; if (!a) return;
+          if (a === "del") { URL.revokeObjectURL(p.url); photos.splice(i, 1); }
+          if (a === "left" && i > 0) [photos[i - 1], photos[i]] = [photos[i], photos[i - 1]];
+          if (a === "right" && i < photos.length - 1) [photos[i + 1], photos[i]] = [photos[i], photos[i + 1]];
+          renderPhotos();
+        });
+        return d;
+      }));
+    }
+
+    // 이미지를 지정 크기로 줄여 JPEG data URL로 변환
+    function resizeImage(file, max, quality = 0.85) {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        const url = URL.createObjectURL(file);
+        img.onload = () => {
+          const s = Math.min(1, max / Math.max(img.width, img.height));
+          const c = document.createElement("canvas");
+          c.width = Math.round(img.width * s); c.height = Math.round(img.height * s);
+          c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+          URL.revokeObjectURL(url);
+          resolve(c.toDataURL("image/jpeg", quality));
+        };
+        img.onerror = () => { URL.revokeObjectURL(url); reject(new Error("이미지를 읽을 수 없어요: " + file.name)); };
+        img.src = url;
+      });
+    }
+
+    /* ---------- 입력 수집 / 임시저장 ---------- */
+    const FIELDS = ["name", "menus", "area", "category", "memo", "address", "hours", "parking", "date", "revisit", "cons", "tags"];
+    const C_FIELDS = ["c-ending", "c-emoji", "c-desc", "c-sample"];
+    function collect() {
+      const v = (id) => $("#f-" + id).value.trim();
+      const menus = v("menus").split("\n").map((l) => l.trim()).filter(Boolean).map((l) => {
+        const m = l.split(/\s+[-–:]\s+|\s*\/\s*/);
+        return { name: m[0].trim(), price: (m[1] || "").trim() };
+      });
+      return {
+        name: v("name"), menus, area: v("area"), category: v("category"), memo: v("memo"),
+        address: v("address"), hours: v("hours"), parking: v("parking"), date: v("date"),
+        revisit: v("revisit"), cons: v("cons"), companion: getCompanion()[0] || "",
+        extraTags: v("tags").split(/[,，]/).map((t) => t.trim().replace(/^#/, "")).filter(Boolean),
+        rating, length: getLength()[0] || "medium",
+        captions: photos.map((p) => p.caption.trim()),
+      };
+    }
+    function toneSettings() {
+      const t = TONES[tone];
+      if (tone !== "custom") return { key: tone, ...t };
+      return { key: "custom", name: "직접 만들기", ending: $("#c-ending").value, emoji: $("#c-emoji").value,
+        guide: $("#c-desc").value.trim(), sample: $("#c-sample").value.trim() };
+    }
+    function saveDraft() {
+      const draft = { tone, mode, rating, companion: getCompanion(), length: getLength() };
+      FIELDS.forEach((f) => draft[f] = $("#f-" + f).value);
+      C_FIELDS.forEach((f) => draft[f] = $("#" + f).value);
+      store.set("blog_draft", JSON.stringify(draft));
+    }
+    function loadDraft() {
+      let d; try { d = JSON.parse(store.get("blog_draft") || "null"); } catch { d = null; }
+      if (!d) return;
+      FIELDS.forEach((f) => { if (d[f] != null) $("#f-" + f).value = d[f]; });
+      C_FIELDS.forEach((f) => { if (d[f] != null) $("#" + f).value = d[f]; });
+      rating = d.rating || 0; paintStars();
+      if (d.tone && TONES[d.tone]) setTone(d.tone);
+      document.querySelectorAll("#companion .chip").forEach((c) => c.classList.toggle("on", (d.companion || []).includes(c.dataset.v)));
+      if (d.length?.length) document.querySelectorAll("#length .chip").forEach((c) => c.classList.toggle("on", d.length.includes(c.dataset.v)));
+      if (d.mode === "ai") $('#mode .tone[data-v="ai"]').click();
+    }
+    document.addEventListener("input", (e) => { if (e.target.closest(".card") && e.target.id !== "api-key") saveDraft(); });
+    document.addEventListener("change", (e) => { if (e.target.closest(".card") && e.target.id !== "api-key") saveDraft(); });
+    loadDraft();
+
+    /* ---------- 기본(템플릿) 모드 문장 생성 ---------- */
+    // 문장은 해요체/합니다체/반말 세 가지 끝맺음으로 준비하고, 말투별 표현을 섞어 만든다.
+    const has = (s) => s && s.length > 0;
+    const josa = (word, a, b) => { // 받침 여부에 따른 조사 선택 (예: 이/가)
+      const ch = word.charCodeAt(word.length - 1);
+      if (ch < 0xac00 || ch > 0xd7a3) return word + b;
+      return word + (((ch - 0xac00) % 28) ? a : b);
+    };
+    const REVISIT = { yes: "무조건 재방문", maybe: "근처 오면 재방문", no: "한 번이면 충분" };
+
+    function templatePost(d, t) {
+      const E = t.ending; // haeyo | hamnida | banmal
+      const k = t.key;
+      const say = (haeyo, hamnida, banmal) => (E === "hamnida" ? hamnida : E === "banmal" ? banmal : haeyo);
+      const where = [d.area, d.category].filter(has).join(" ");
+      const placeName = where ? `${where} 맛집 ${d.name}` : d.name;
+      const blocks = [];
+      const P = (text) => blocks.push({ kind: "text", text });
+      const H = (text) => blocks.push({ kind: "heading", text });
+      let photoIdx = 0;
+      const nextPhoto = () => { if (photoIdx < photos.length) blocks.push({ kind: "photo", photo: ++photoIdx, text: d.captions[photoIdx - 1] || "" }); };
+      const long = d.length === "long", short = d.length === "short";
+
+      // 인트로
+      const intros = {
+        friendly: [`안녕하세요, 이웃님들 😊\n오늘은 제가 다녀온 ${placeName}${josa(placeName, "을", "를").slice(placeName.length)} 소개해 드리려고 해요!`,
+                   `오랜만에 찐맛집을 발견해서 얼른 기록하러 왔어요 ✨\n바로 ${josa(placeName, "이에요", "예요")}!`],
+        bubbly: [`여러분 저 진짜 대박 맛집 찾았음 🔥🔥\n${placeName} 여긴 무조건 알려줘야 해 ㅋㅋ`,
+                 `와 여기 실화냐고요 😭✨\n${placeName} 다녀온 후기 바로 갑니다 💨`],
+        info: [`안녕하세요. 오늘은 ${placeName} 방문 후기를 정리해 보겠습니다.`,
+               `이번 포스팅에서는 직접 방문한 ${placeName}의 메뉴와 가격, 분위기를 소개합니다.`],
+        emotional: [`문득 따뜻한 한 끼가 생각나던 날,\n${d.name}에 다녀왔다.`,
+                    `바쁜 하루 끝에 조용히 들른 ${d.name}.\n오래 기억하고 싶어서 적어 둔다.`],
+        funny: [`다이어트는 내일부터 하기로 했어요. 왜냐면 오늘은 ${placeName}에 갔거든요 🤣`,
+                `제 위장이 강력하게 추천해서 쓰는 글이에요. ${placeName} 후기 시작합니다!`],
+      };
+      const introFallback = say(`오늘은 ${placeName}에 다녀온 후기를 들려드릴게요!`, `오늘은 ${placeName} 방문 후기를 소개합니다.`, `오늘은 ${placeName}에 다녀온 기록.`);
+      P(intros[k] ? pick(intros[k]) : introFallback);
+      if (d.companion && !short) {
+        const comp = d.companion === "혼밥" ? say("이날은 혼자 조용히 혼밥하러 다녀왔어요.", "이번에는 혼자 방문했습니다.", "이날은 혼자였다. 혼밥도 꽤 괜찮은 날.")
+          : say(`이날은 ${d.companion}${josa(d.companion, "이랑", "랑").slice(d.companion.length)} 함께 다녀왔어요.`, `${d.companion}${josa(d.companion, "과", "와").slice(d.companion.length)} 함께 방문했습니다.`, `${d.companion}${josa(d.companion, "이랑", "랑").slice(d.companion.length)} 함께 갔다.`);
+        P(comp);
+      }
+
+      // 가게 / 위치
+      nextPhoto();
+      H(say("📍 위치와 분위기", "📍 위치 및 매장 정보", "📍 가는 길"));
+      const loc = [];
+      if (d.area) loc.push(say(`${d.area} 근처라 찾아가기 어렵지 않았어요.`, `${d.area} 인근에 위치해 있어 접근성이 좋습니다.`, `${d.area}에서 멀지 않아 금방 찾았다.`));
+      if (d.category) loc.push(say(`${d.category} 좋아하시는 분들이라면 꼭 기억해 두세요!`, `${d.category} 메뉴를 찾는 분들께 참고가 될 것 같습니다.`, `${d.category}${josa(d.category, "이", "가").slice(d.category.length)} 당기는 날 딱이었다.`));
+      if (!loc.length) loc.push(say(`${d.name}, 이름부터 궁금해지는 곳이었어요.`, `${d.name}${josa(d.name, "은", "는").slice(d.name.length)} 꾸준히 찾는 손님이 많은 곳입니다.`, `${d.name}. 오래 궁금했던 곳.`));
+      if (k === "bubbly") loc.push("들어가자마자 분위기 미쳤음 ㄹㅇ 👀");
+      if (k === "emotional") loc.push("문을 열자 은은한 냄새와 낮은 대화 소리가 먼저 반겨 주었다.");
+      if (k === "funny") loc.push("입구에서부터 맛있는 냄새가 제 발목을 잡았어요. 진짜로요.");
+      P(loc.join(" "));
+
+      // 메뉴
+      H(say("🍽️ 주문한 메뉴", "🍽️ 메뉴 소개", "🍽️ 오늘의 메뉴"));
+      if (d.menus.length > 1) P(say(`이날 주문한 메뉴는 ${josa(d.menus.map((m) => m.name).join(", "), "이에요", "예요")}.`, `주문한 메뉴는 ${d.menus.map((m) => m.name).join(", ")}입니다.`, `시킨 건 ${d.menus.map((m) => m.name).join(", ")}.`));
+      const 은는 = (w) => josa(w, "은", "는");
+      const 이가 = (w) => josa(w, "이", "가");
+      const 을를 = (w) => josa(w, "을", "를");
+      const menuLines = {
+        friendly: (m) => [`${은는(m.name)} 한 입 먹자마자 '아 여기 잘하는 집이구나' 싶었어요 😋`, `${은는(m.name)} 정말 기대 이상이었어요! 자꾸 손이 가는 맛이었답니다.`,
+                          `${은는(m.name)} 비주얼부터 너무 예뻐서 사진을 한참 찍었어요 📸`, `${은는(m.name)} 개인적으로 제일 추천하고 싶은 메뉴예요 👍`],
+        bubbly: (m) => [`${m.name} 이거 진짜 미쳤음 🤤🔥 한 입 먹고 바로 눈 커짐 ㅋㅋ`, `${m.name} 비주얼부터 합격 💯 맛은 말해 뭐해 걍 대박`,
+                        `${은는(m.name)} 무조건 시켜야 됨 ㄹㅇ 안 시키면 손해 😤`, `${m.name} 먹고 소리 지를 뻔 😱✨ 존맛탱 인정`],
+        info: (m) => [`${은는(m.name)} 간이 과하지 않고 재료 본연의 맛이 잘 살아 있었습니다.`, `${은는(m.name)} 양과 구성 모두 만족스러운 편이었습니다.`,
+                      `${은는(m.name)} 이 집의 대표 메뉴로 많은 분들이 주문하는 메뉴입니다.`, `${은는(m.name)} 전체적으로 균형 잡힌 맛이었습니다.`],
+        emotional: (m) => [`${m.name}. 천천히 한 입 베어 물자 하루의 피로가 조금 풀렸다.`, `${이가(m.name)} 오래 마음에 남았다.`,
+                           `${을를(m.name)} 앞에 두고 한동안 말이 없었다. 맛있으면 그렇게 된다.`, `${m.name}, 소박하지만 정성이 느껴지는 맛.`],
+        funny: (m) => [`${을를(m.name)} 먹는 순간 제 혀가 박수를 쳤어요 👏`, `${m.name}, 이건 반칙이에요. 너무 맛있으면 신고해도 되나요? 🤣`,
+                       `${m.name} 먹고 나서 제 다이어트 계획은 조용히 사라졌습니다 🫠`, `${은는(m.name)} 순식간에 사라졌어요. 범인은 저예요.`],
+      };
+      const menuDefault = (m) => [say(`${은는(m.name)} 정말 맛있었어요.`, `${은는(m.name)} 만족스러운 맛이었습니다.`, `${은는(m.name)} 맛있었다.`),
+                                  say(`${은는(m.name)} 꼭 드셔 보세요.`, `${은는(m.name)} 추천할 만한 메뉴입니다.`, `${은는(m.name)} 또 먹고 싶다.`)];
+      const usedLines = new Set();
+      d.menus.forEach((m, i) => {
+        nextPhoto();
+        const bank = (menuLines[k] || menuDefault)(m);
+        const fresh = bank.filter((_, j) => !usedLines.has(j));
+        const choice = pick(fresh.length ? fresh : bank);
+        usedLines.add(bank.indexOf(choice));
+        const lines = [choice];
+        if (m.price) lines.push(say(`가격은 ${m.price}이에요.`, `가격은 ${m.price}입니다.`, `가격은 ${m.price}.`));
+        if (long && i === 0) lines.push(say("다음에 오면 또 시킬 메뉴예요.", "처음 방문하신다면 이 메뉴부터 추천드립니다.", "다음에도 이건 꼭 다시."));
+        P(lines.join(" "));
+      });
+
+      // 남은 사진
+      const extraLines = say(["보기만 해도 다시 먹고 싶어지네요.", "사진으로 다 안 담기는 게 아쉬울 정도예요."],
+                             ["매장 내부와 음식 사진도 함께 참고해 주세요."],
+                             ["다시 봐도 또 먹고 싶다.", "사진으로는 다 담기지 않는 맛."]);
+      const remaining = photos.length - photoIdx;
+      if (remaining > 0) {
+        if (!short) H(say("📸 사진으로 더 보기", "📸 추가 사진", "📸 더 남긴 사진들"));
+        while (photoIdx < photos.length) nextPhoto();
+        P(pick(extraLines));
+      }
+
+      // 메모 / 아쉬운 점
+      if (d.memo || d.cons) {
+        H(say("💬 솔직 후기", "💬 장단점 정리", "💬 솔직한 이야기"));
+        if (d.memo) P(say(`제일 기억에 남는 포인트는요!\n"${d.memo}"\n이 부분은 꼭 말씀드리고 싶었어요.`, `가장 인상적이었던 부분을 정리하면 다음과 같습니다.\n"${d.memo}"`, `제일 기억에 남는 건,\n"${d.memo}"`));
+        if (d.cons) P(say(`아쉬웠던 점도 솔직하게 말씀드리면, "${d.cons}"\n방문 전에 참고하세요!`, `아쉬운 점으로는 "${d.cons}"\n방문 시 참고하시기 바랍니다.`, `아쉬운 점이라면, "${d.cons}"`));
+      }
+
+      // 총평
+      H(say("⭐ 총평", "⭐ 총평", "⭐ 마무리"));
+      const verdict = [];
+      if (d.rating) verdict.push(say(`제 별점은 ${"★".repeat(d.rating)}${"☆".repeat(5 - d.rating)} (${d.rating}/5)이에요.`, `개인 평점은 5점 만점에 ${d.rating}점입니다.`, `별점은 ${d.rating}/5.`));
+      if (d.revisit === "yes") verdict.push(say("재방문 의사 100%! 벌써 다음에 뭐 먹을지 고민 중이에요.", "재방문 의사가 충분히 있는 곳입니다.", "다음에 또 올 거다. 확실히."));
+      if (d.revisit === "maybe") verdict.push(say("근처에 오면 또 들를 것 같아요.", "근처를 방문한다면 다시 찾을 의향이 있습니다.", "근처에 오면 또 들를 듯."));
+      if (d.revisit === "no") verdict.push(say("한 번쯤 경험해 보기엔 좋은 곳이었어요.", "한 번쯤 방문해 볼 만한 곳입니다.", "한 번으로 충분했지만, 좋은 경험이었다."));
+      if (!verdict.length) verdict.push(say(`${d.name}, 자신 있게 추천드려요!`, `${d.name}, 충분히 추천할 만한 곳입니다.`, `${d.name}. 추천할 만한 곳.`));
+      if (long && k === "friendly") verdict.push("근처 가시는 분들은 꼭 한번 들러 보세요 💕");
+      if (long && k === "info") verdict.push("방문 전 영업시간과 휴무일은 한 번 더 확인하시길 권장합니다.");
+      P(verdict.join(" "));
+
+      // 정보 박스
+      const info = [`📍 ${d.name}`];
+      if (d.address) info.push(`주소 : ${d.address}`);
+      else if (d.area) info.push(`위치 : ${d.area} 근처`);
+      if (d.hours) info.push(`영업시간 : ${d.hours}`);
+      if (d.parking) info.push(`주차 : ${d.parking}`);
+      if (d.menus.some((m) => m.price)) info.push("메뉴 : " + d.menus.filter((m) => m.price).map((m) => `${m.name} ${m.price}`).join(" / "));
+      if (d.date) info.push(`방문일 : ${d.date.replace(/-/g, ".")}`);
+      if (info.length > 1 || !short) blocks.push({ kind: "quote", text: info.join("\n") });
+
+      // 아웃트로
+      const outros = {
+        friendly: ["오늘 포스팅이 도움이 되셨다면 공감과 댓글 부탁드려요 💛", "그럼 다음 맛집 포스팅에서 만나요! 안녕 👋"],
+        bubbly: ["다들 꼭 가봐 진심임 🙏✨ 공감 꾹 눌러주면 사랑해요 💖", "그럼 다음 맛집으로 또 만나 👋🔥"],
+        info: ["이상으로 방문 후기를 마치겠습니다. 감사합니다.", "도움이 되셨다면 공감 부탁드립니다. 감사합니다."],
+        emotional: ["좋은 사람과, 좋은 음식. 그거면 충분한 하루였다.", "다음 계절에도 다시 찾고 싶은 곳."],
+        funny: ["읽느라 배고파지셨다면 죄송합니다(안 죄송함) 🤣 다음 글에서 만나요!", "제 위장은 오늘도 행복했습니다. 이상 먹보 리포터였습니다 🎤"],
+      };
+      P(outros[k] ? pick(outros[k]) : say("오늘 후기는 여기까지예요. 읽어 주셔서 감사해요!", "읽어 주셔서 감사합니다.", "오늘의 기록은 여기까지."));
+
+      const titles = makeTitles(d, k, say);
+      return { titles, blocks: applyEmoji(blocks, t.emoji), hashtags: makeTags(d) };
+    }
+
+    function makeTitles(d, k, say) {
+      const where = d.area ? `${d.area} ` : "";
+      const cat = d.category ? `${d.category} ` : "";
+      const menu = d.menus[0]?.name || "";
+      const base = [
+        `${where}${cat}맛집 ${d.name} | ${menu} 솔직 후기`,
+        `[${d.area || "맛집"}] ${d.name} 방문 후기, ${menu}${d.menus.length > 1 ? " 외" : ""} 메뉴 추천`,
+      ];
+      const extra = {
+        bubbly: `${where}${d.name} 여긴 진짜 미쳤다 🔥 ${menu} 맛집 인정`,
+        emotional: `${d.name}, 따뜻한 한 끼의 기록`,
+        funny: `${d.name}에서 제 위장이 기립박수 친 썰 (${menu})`,
+        info: `${where}${d.name} 메뉴·가격·주차 정보 총정리`,
+        friendly: `${where}${d.name} 다녀왔어요! ${menu} 너무 맛있었던 곳`,
+      };
+      return [...base, extra[k] || say(`${where}${d.name} 다녀왔어요`, `${where}${d.name} 방문 리뷰`, `${d.name} 다녀옴`)];
+    }
+
+    function makeTags(d) {
+      const nos = (s) => s.replace(/\s+/g, "");
+      const tags = [nos(d.name)];
+      if (d.area) tags.push(nos(d.area) + "맛집", nos(d.area));
+      if (d.category) tags.push(nos(d.category), (d.area ? nos(d.area) : "") + nos(d.category));
+      d.menus.slice(0, 3).forEach((m) => tags.push(nos(m.name)));
+      const comp = { "연인": "데이트맛집", "가족": "가족외식", "혼밥": "혼밥맛집", "친구": "친구랑", "회사 동료": "회식장소" }[d.companion];
+      if (comp) tags.push(comp);
+      tags.push("맛집추천", "맛집후기", ...d.extraTags.map(nos));
+      return [...new Set(tags.filter(Boolean))].slice(0, 20);
+    }
+
+    const EMOJI_RE = /[\p{Extended_Pictographic}\u{1F3FB}-\u{1F3FF}\u{FE0F}\u{200D}]/gu;
+    function applyEmoji(blocks, level) {
+      if (level === "some") return blocks;
+      const extra = ["😋", "✨", "💕", "🔥", "👍", "🤤"];
+      return blocks.map((b) => {
+        if (b.kind === "photo" || b.kind === "quote") return b;
+        if (level === "none") return { ...b, text: b.text.replace(EMOJI_RE, "").replace(/ +\n/g, "\n").replace(/ {2,}/g, " ").trim() };
+        if (b.kind === "text" && !/\p{Extended_Pictographic}/u.test(b.text)) return { ...b, text: b.text + " " + pick(extra) };
+        return b;
+      });
+    }
+
+    /* ---------- AI 모드 (Claude API) ---------- */
+    const POST_SCHEMA = {
+      type: "object",
+      additionalProperties: false,
+      required: ["titles", "blocks", "hashtags"],
+      properties: {
+        titles: { type: "array", items: { type: "string" } },
+        blocks: {
+          type: "array",
+          items: {
+            type: "object",
+            additionalProperties: false,
+            required: ["kind", "text", "photo"],
+            properties: {
+              kind: { type: "string", enum: ["heading", "text", "photo", "quote"] },
+              text: { type: "string" },
+              photo: { type: "integer" },
+            },
+          },
+        },
+        hashtags: { type: "array", items: { type: "string" } },
+      },
+    };
+
+    let anthropicModule;
+    async function loadSdk() {
+      if (!anthropicModule) anthropicModule = await import("https://cdn.jsdelivr.net/npm/@anthropic-ai/sdk@1.0.0/+esm");
+      return anthropicModule.default;
+    }
+
+    async function aiPost(d, t, apiKey) {
+      const Anthropic = await loadSdk();
+      const client = new Anthropic({ apiKey, dangerouslyAllowBrowser: true });
+
+      const endingDesc = { haeyo: "해요체(~했어요)", hamnida: "합니다체(~했습니다)", banmal: "반말/일기체(~했다, ~함)" }[t.ending];
+      const emojiDesc = { none: "이모지는 쓰지 않는다", some: "이모지는 문단마다 0~1개 정도", many: "이모지를 풍성하게 쓴다" }[t.emoji];
+      const lengthDesc = { short: "본문 600~900자", medium: "본문 1200~1800자", long: "본문 2200~3000자" }[d.length];
+
+      const system = [
+        "너는 네이버 블로그 맛집 리뷰를 쓰는 인기 블로거다. 사용자가 준 정보와 사진만을 근거로 실제 방문자가 쓴 듯한 자연스러운 한국어 맛집 소개 글을 쓴다.",
+        "규칙:",
+        "- 사용자가 주지 않은 사실(가격, 주소, 영업시간, 직원 응대, 웨이팅 등)은 지어내지 않는다. 사진에서 보이는 것(음식의 모양, 색, 양, 인테리어)은 묘사해도 된다.",
+        "- 네이버 블로그 스타일: 짧은 문단, 줄바꿈이 많은 가운데 정렬용 문장, 소제목으로 흐름 구분(인트로 → 위치/분위기 → 메뉴별 후기 → 솔직 후기 → 총평 → 정보 정리 → 마무리 인사).",
+        "- 사진은 모두 한 번씩, 내용과 맞는 위치에 photo 블록으로 넣는다(photo는 1부터 시작하는 사진 번호, photo 블록의 text는 짧은 사진 설명 또는 빈 문자열). 사진이 아닌 블록의 photo 값은 0.",
+        "- quote 블록 하나에 가게 정보 요약(📍가게명, 주소/위치, 영업시간, 주차, 메뉴 가격 등 주어진 정보만)을 줄바꿈으로 정리한다.",
+        "- heading 블록은 이모지 하나 + 짧은 소제목.",
+        "- 검색 노출을 고려해 지역명·가게명·대표 메뉴를 자연스럽게 반복한다.",
+        "- titles는 서로 다른 스타일의 제목 3개(32자 이내 권장). hashtags는 # 없이 10~20개.",
+      ].join("\n");
+
+      const toneText = [
+        `말투: ${t.name}${t.guide ? " — " + t.guide : ""}`,
+        `문장 끝맺음: ${endingDesc}`,
+        `이모지: ${emojiDesc}`,
+        `분량: ${lengthDesc}`,
+        t.sample ? `아래 샘플 글의 문체(어휘, 문장 길이, 끝맺음, 이모지 습관)를 최대한 따라 한다. 샘플의 내용은 가져오지 않는다.\n<sample>\n${t.sample}\n</sample>` : "",
+      ].filter(Boolean).join("\n");
+
+      const info = {
+        가게이름: d.name, 지역: d.area, 음식종류: d.category,
+        메뉴: d.menus.map((m) => (m.price ? `${m.name} (${m.price})` : m.name)),
+        한줄메모: d.memo, 아쉬운점: d.cons, 별점: d.rating ? `${d.rating}/5` : "", 동행: d.companion,
+        재방문: REVISIT[d.revisit] || "", 주소: d.address, 영업시간: d.hours, 주차: d.parking, 방문일: d.date,
+        추가해시태그: d.extraTags,
+      };
+      Object.keys(info).forEach((key) => { const v = info[key]; if (!v || (Array.isArray(v) && !v.length)) delete info[key]; });
+
+      const content = [];
+      const sendPhotos = photos.slice(0, 12);
+      for (let i = 0; i < sendPhotos.length; i++) {
+        const dataUrl = await resizeImage(sendPhotos[i].file, 1024, 0.8);
+        content.push({ type: "text", text: `사진 ${i + 1}${d.captions[i] ? ` (메모: ${d.captions[i]})` : ""}` });
+        content.push({ type: "image", source: { type: "base64", media_type: "image/jpeg", data: dataUrl.split(",")[1] } });
+      }
+      content.push({ type: "text", text: `${toneText}\n\n가게 정보(JSON):\n${JSON.stringify(info, null, 2)}\n\n첨부 사진 수: ${photos.length}장${photos.length > sendPhotos.length ? ` (앞의 ${sendPhotos.length}장만 이미지로 첨부됨, 나머지도 순서대로 photo 블록으로 배치)` : ""}\n위 정보로 네이버 블로그 맛집 소개 글을 작성해 줘.` });
+
+      const response = await client.beta.messages.create({
+        model: "claude-opus-5-5",
+        max_tokens: 16000,
+        system,
+        messages: [{ role: "user", content }],
+        output_config: { effort: "medium", format: { type: "json_schema", schema: POST_SCHEMA } },
+        betas: ["server-side-fallback-2026-07-01"],
+        fallbacks: "default",
+      });
+
+      if (response.stop_reason === "refusal") throw new Error("AI가 이 요청에 대한 글 작성을 거절했어요. 입력 내용을 바꿔 다시 시도해 주세요.");
+      if (response.stop_reason === "max_tokens") throw new Error("글이 너무 길어져 중간에 끊겼어요. 글 길이를 줄여 다시 시도해 주세요.");
+      const text = response.content.filter((b) => b.type === "text").map((b) => b.text).join("");
+      const post = JSON.parse(text);
+      // 누락된 사진은 끝부분에 보충
+      const used = new Set(post.blocks.filter((b) => b.kind === "photo").map((b) => b.photo));
+      post.blocks = post.blocks.filter((b) => b.kind !== "photo" || (b.photo >= 1 && b.photo <= photos.length));
+      const missing = photos.map((_, i) => i + 1).filter((n) => !used.has(n));
+      if (missing.length) {
+        const at = Math.max(0, post.blocks.findIndex((b) => b.kind === "quote"));
+        post.blocks.splice(at, 0, ...missing.map((n) => ({ kind: "photo", photo: n, text: d.captions[n - 1] || "" })));
+      }
+      post.hashtags = post.hashtags.map((h) => h.replace(/^#/, "").replace(/\s+/g, ""));
+      return post;
+    }
+
+    function aiErrorMessage(err) {
+      const s = err?.status;
+      if (s === 401) return "API 키가 올바르지 않아요. 키를 다시 확인해 주세요.";
+      if (s === 403) return "이 API 키로는 해당 모델을 사용할 수 없어요.";
+      if (s === 429) return "요청이 너무 많아요. 잠시 후 다시 시도해 주세요.";
+      if (s === 529 || s >= 500) return "AI 서버가 혼잡해요. 잠시 후 다시 시도하거나 기본 모드를 이용해 주세요.";
+      if (s === 400) return "요청 형식 오류: " + (err.message || "") ;
+      return err?.message || "알 수 없는 오류가 발생했어요.";
+    }
+
+    /* ---------- 렌더링 ---------- */
+    let current = null;
+    function render(post) {
+      current = post;
+      const paper = $("#paper");
+      const html = post.blocks.map((b) => {
+        if (b.kind === "heading") return `<h3>${esc(b.text)}</h3>`;
+        if (b.kind === "quote") return `<blockquote>${esc(b.text)}</blockquote>`;
+        if (b.kind === "photo") {
+          const p = photos[b.photo - 1];
+          if (!p) return "";
+          return `<figure data-photo="${b.photo}"><img src="${p.url}" alt="사진 ${b.photo}">${b.text ? `<figcaption>${esc(b.text)}</figcaption>` : ""}</figure>`;
+        }
+        return `<p>${esc(b.text).replace(/\n/g, "<br>")}</p>`;
+      }).join("") + (post.hashtags.length ? `<p class="tags">${post.hashtags.map((h) => "#" + esc(h)).join(" ")}</p>` : "");
+      paper.innerHTML = html;
+      paper.hidden = false;
+      $("#empty").hidden = true;
+      $("#out-actions").hidden = false;
+      $("#titles").replaceChildren(...post.titles.map((title) => {
+        const d = document.createElement("div");
+        d.className = "title-opt";
+        d.innerHTML = `<span></span><button type="button">제목 복사</button>`;
+        d.firstChild.textContent = title;
+        d.querySelector("button").addEventListener("click", () => copyPlain(title, "제목을 복사했어요"));
+        return d;
+      }));
+      if (innerWidth <= 900) $("#paper").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    async function generate() {
+      const err = $("#error");
+      err.classList.remove("show");
+      const d = collect();
+      if (!d.name) return showError("가게 이름을 입력해 주세요.", "#f-name");
+      if (!d.menus.length) return showError("먹은 메뉴를 하나 이상 입력해 주세요.", "#f-menus");
+      const t = toneSettings();
+
+      if (mode === "template") { render(templatePost(d, t)); toast("글이 완성됐어요!"); return; }
+
+      const key = $("#api-key").value.trim();
+      if (!key) return showError("AI 모드를 쓰려면 Anthropic API 키가 필요해요. 키가 없다면 기본 모드를 이용해 주세요.", "#api-key");
+      if ($("#save-key").checked) store.set("anthropic_key", key); else store.del("anthropic_key");
+
+      const btn = $("#generate");
+      btn.disabled = true; btn.textContent = "작성 중…";
+      $("#loading").classList.add("show"); $("#paper").hidden = true; $("#empty").hidden = true; $("#titles").replaceChildren();
+      try {
+        render(await aiPost(d, t, key));
+        toast("AI가 글을 완성했어요!");
+      } catch (e) {
+        console.error(e);
+        showError(aiErrorMessage(e));
+        if (current) render(current); else $("#empty").hidden = false;
+      } finally {
+        btn.disabled = false; btn.textContent = "✍️ 블로그 글 만들기";
+        $("#loading").classList.remove("show");
+      }
+    }
+    function showError(msg, focusSel) {
+      const err = $("#error"); err.textContent = msg; err.classList.add("show");
+      if (focusSel) $(focusSel).focus();
+    }
+    $("#generate").addEventListener("click", generate);
+    $("#regen").addEventListener("click", generate);
+
+    /* ---------- 복사 / 저장 ---------- */
+    // 편집된 미리보기를 기준으로 네이버 에디터용 HTML / 텍스트를 만든다.
+    function exportContent() {
+      const paper = $("#paper");
+      const parts = [], textParts = [];
+      paper.childNodes.forEach((n) => {
+        if (n.nodeType !== 1) return;
+        const tag = n.tagName;
+        if (tag === "FIGURE") {
+          const num = n.dataset.photo;
+          const cap = n.querySelector("figcaption")?.textContent || "";
+          parts.push(`<p style="text-align:center;color:#999">[사진 ${num}]${cap ? " " + esc(cap) : ""}</p>`);
+          textParts.push(`[사진 ${num}]${cap ? " " + cap : ""}`);
+        } else if (tag === "H3") {
+          parts.push(`<p style="text-align:center"><b><span style="font-size:19px">${esc(n.textContent)}</span></b></p>`);
+          textParts.push(n.textContent);
+        } else if (tag === "BLOCKQUOTE") {
+          parts.push(`<blockquote>${esc(n.innerText).replace(/\n/g, "<br>")}</blockquote>`);
+          textParts.push(n.innerText);
+        } else {
+          parts.push(`<p style="text-align:center">${esc(n.innerText).replace(/\n/g, "<br>")}</p>`);
+          textParts.push(n.innerText);
+        }
+      });
+      return { html: parts.join("<p><br></p>"), text: textParts.join("\n\n") };
+    }
+    async function copyPlain(text, msg) {
+      try { await navigator.clipboard.writeText(text); toast(msg); }
+      catch { fallbackCopy(text); toast(msg); }
+    }
+    function fallbackCopy(text) {
+      const ta = document.createElement("textarea"); ta.value = text; document.body.append(ta); ta.select();
+      document.execCommand("copy"); ta.remove();
+    }
+    $("#copy-text").addEventListener("click", () => copyPlain(exportContent().text, "본문 텍스트를 복사했어요"));
+    $("#copy-rich").addEventListener("click", async () => {
+      const { html, text } = exportContent();
+      try {
+        await navigator.clipboard.write([new ClipboardItem({
+          "text/html": new Blob([html], { type: "text/html" }),
+          "text/plain": new Blob([text], { type: "text/plain" }),
+        })]);
+        toast("서식 포함으로 복사했어요. 블로그 글쓰기 창에 붙여 넣으세요!");
+      } catch { copyPlain(text, "텍스트로 복사했어요"); }
+    });
+    $("#download-photos").addEventListener("click", async () => {
+      if (!photos.length) return toast("첨부한 사진이 없어요");
+      const name = ($("#f-name").value.trim() || "맛집").replace(/[\\/:*?"<>|\s]+/g, "_");
+      for (let i = 0; i < photos.length; i++) {
+        const f = photos[i].file;
+        const ext = (f.name.split(".").pop() || "jpg").toLowerCase();
+        const a = document.createElement("a");
+        a.href = photos[i].url; a.download = `${String(i + 1).padStart(2, "0")}_${name}.${ext}`;
+        document.body.append(a); a.click(); a.remove();
+        await new Promise((r) => setTimeout(r, 300));
+      }
+      toast(`사진 ${photos.length}장을 저장했어요`);
+    });
+  </script>
+</body>
+</html>
